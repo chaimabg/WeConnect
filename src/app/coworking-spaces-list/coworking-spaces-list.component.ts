@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Space } from '../models/Space';
+import { SpaceService } from '../services/space.service'
 
 @Component({
   selector: 'app-coworking-spaces-list',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coworking-spaces-list.component.css']
 })
 export class CoworkingSpacesListComponent implements OnInit {
-
-  constructor() { }
+  spaces: Space[] = [];
+  constructor(private spaceService: SpaceService) { }
 
   ngOnInit(): void {
+    this.spaces = this.spaceService.getSpaces();
+
   }
 
 }
