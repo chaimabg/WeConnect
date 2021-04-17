@@ -74,11 +74,11 @@ ol {
   border-top: none;
   padding: 24px 24px 30px 28px;
 }
-.room-item .ri-text h4 {
+.room-item .ri-text h5 {
   color: #19191a;
   margin-bottom: 17px;
 }
-.room-item .ri-text h3 {
+.room-item .ri-text h4 {
   color: #dfa974;
   font-weight: 700;
   margin-bottom: 14px;
