@@ -7,6 +7,7 @@ import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-
 import { CoworkingspaceItemComponent } from './coworkingspace-item/coworkingspace-item.component';
 import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CoworkingSpacesListComponent,
     CoworkingspaceItemComponent,
     CowSpaceDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
