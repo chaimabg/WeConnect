@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-spaces-list.component';
+import { CoworkingspaceItemComponent } from './coworkingspace-item/coworkingspace-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoworkingSpacesListComponent
+    CoworkingSpacesListComponent,
+    CoworkingspaceItemComponent
   ],
   imports: [
     BrowserModule,

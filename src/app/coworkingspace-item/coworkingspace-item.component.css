@@ -62,41 +62,46 @@ ol {
   padding: 0;
   margin: 0;
 }
-.breadcrumb-section {
-  padding-top: 70px;
-  padding-bottom: 80px;
+
+.room-item {
+  margin-bottom: 30px;
 }
-.breadcrumb-text {
-  text-align: center;
+.room-item img {
+  min-width: 100%;
 }
-.breadcrumb-text h2 {
-  font-size: 44px;
+.room-item .ri-text {
+  border: 1px solid #ebebeb;
+  border-top: none;
+  padding: 24px 24px 30px 28px;
+}
+.room-item .ri-text h4 {
   color: #19191a;
-  margin-bottom: 12px;
+  margin-bottom: 17px;
 }
-.breadcrumb-text .bt-option a {
+.room-item .ri-text h3 {
+  color: #dfa974;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.room-item .ri-text .primary-btn {
+  color: #19191a;
+}
+.primary-btn {
   display: inline-block;
-  font-size: 18px;
-  color: #19191a;
-  margin-right: 20px;
+  font-size: 13px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
   position: relative;
-  font-weight: 500;
 }
-.breadcrumb-text .bt-option a:after {
+.primary-btn:after {
   position: absolute;
-  right: -13px;
-  top: 1px;
-  content: "";
-  font-size: 18px;
-  font-family: "FontAwesome";
-  color: #aaaab3;
-}
-.breadcrumb-text .bt-option span {
-  display: inline-block;
-  font-size: 18px;
-  color: #aaaab3;
-}
-.rooms-section {
-  padding-top: 0;
-  padding-bottom: 80px;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: #dfa974;
+  content: "";
 }
