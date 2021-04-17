@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-spaces-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CoworkingSpacesListComponent
   ],
   imports: [
     BrowserModule,
