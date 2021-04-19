@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { Space } from '../models/Space';
 import { SpaceService } from '../services/space.service'
 
@@ -9,11 +11,20 @@ import { SpaceService } from '../services/space.service'
 })
 export class CoworkingSpacesListComponent implements OnInit {
   spaces: Space[] = [];
+  color: ThemePalette = 'warn';
+  mode: ProgressSpinnerMode = 'determinate';
+  isLoading: boolean = true;
+  value =50;
   constructor(private spaceService: SpaceService) { }
 
   ngOnInit(): void {
     this.spaceService.getSpaces().subscribe(spaces => {
       this.spaces = spaces;
+      this.isLoading = false;
+    },
+    error =>{
+      this.isLoading = true;
+      console.log(error);
     });
 
   }

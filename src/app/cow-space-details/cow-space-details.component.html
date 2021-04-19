@@ -38,11 +38,11 @@
                             <tbody>
                                 <tr>
                                     <td class="r-o">joined:</td>
-                                    <td>{{space.joined}}</td>
+                                    <td>{{space.joined.toString().substring(0,10)}}</td>
                                 </tr>
                                 <tr>
                                     <td class="r-o">Opening Hours:</td>
-                                    <td> {{space.hourOpen}}-{{space.hourClose}}</td>
+                                    <td> {{space.hourOpen.toString().substring(11,16)}}&nbsp;am&nbsp;-&nbsp;{{space.hourClose.toString().substring(11,16)}}&nbsp;pm</td>
                                 </tr>
                                 <tr>
                                     <td class="r-o">Services:</td>

@@ -16,6 +16,10 @@
 <section class="rooms-section spad">
     <div class="container">
         <div class="row">
+            <div *ngIf="isLoading" class="load">
+                <!-- <mat-spinner class="example-margin" [color]="color" [mode]="mode" [value]="value">
+                </mat-spinner> -->
+            </div>
             <app-coworkingspace-item *ngFor="let space of spaces" class="col-lg-4 col-md-6" [space]='space'></app-coworkingspace-item>
         </div>
     </div>
