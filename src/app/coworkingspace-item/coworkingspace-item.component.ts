@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Space } from '../models/Space';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-coworkingspace-item',
@@ -9,9 +10,10 @@ import { Space } from '../models/Space';
 export class CoworkingspaceItemComponent implements OnInit {
   @Input()
   space: Space = new Space;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
+
 
 }

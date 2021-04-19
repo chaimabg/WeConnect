@@ -1,37 +1,20 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http'
+import { Space } from '../models/Space';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpaceService {
-
-  constructor() { }
-  getSpaces(){
-    return [
-      {
-        id: 1,
-        name: 'space one',
-        location: 'location 1',
-        description: 'blablabla'
-      },
-      {
-        id: 2,
-        name: 'space 2',
-        location: 'location 2',
-        description: 'blablabla'
-      },
-      {
-        id: 3,
-        name: 'space 3',
-        location: 'location 3',
-        description: 'blablabla'
-      },
-      {
-        id: 4,
-        name: 'space 4',
-        location: 'location 4',
-        description: 'blablabla'
-      },
-    ];
+  spacesUrl:string = 'http://localhost:5000/spaces';
+  constructor(private http: HttpClient) { }
+  getSpaces(): Observable<Space[]> {
+    return this.http.get<Space[]>(this.spacesUrl);
   }
+  getSpace(id: string): Observable<Space>{
+    console.log('fetching...');
+    return this.http.get<Space>(`${this.spacesUrl}/${id}`);
+  }
+
 }

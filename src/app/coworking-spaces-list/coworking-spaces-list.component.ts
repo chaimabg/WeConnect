@@ -12,7 +12,9 @@ export class CoworkingSpacesListComponent implements OnInit {
   constructor(private spaceService: SpaceService) { }
 
   ngOnInit(): void {
-    this.spaces = this.spaceService.getSpaces();
+    this.spaceService.getSpaces().subscribe(spaces => {
+      this.spaces = spaces;
+    });
 
   }
 
