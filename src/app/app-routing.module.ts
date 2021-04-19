@@ -5,7 +5,7 @@ import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-
 
 const routes: Routes = [
   {path: 'coworkingspaces', component: CoworkingSpacesListComponent},
-  {path: 'coworkingspace/:id', component:  CowSpaceDetailsComponent}
+  {path: 'coworkingspace/:_id', component:  CowSpaceDetailsComponent}
 ];
 
 @NgModule({

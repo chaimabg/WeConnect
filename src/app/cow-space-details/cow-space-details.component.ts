@@ -11,20 +11,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CowSpaceDetailsComponent implements OnInit {
   space!: Space;
+  id!: string;
   constructor(private spaceService: SpaceService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
-    //console.log('compo');
-    this.getSpace(this.route.snapshot.params.get('id'));
+    this.getSpace(this.route.snapshot.params._id);
   }
 
   getSpace(id:string):void{
-    //console.log('getting');
     this.spaceService.getSpace(id).subscribe(data =>{
       this.space = data;
-      console.log(this.space);
     })
   }
 
