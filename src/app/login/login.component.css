@@ -1,6 +1,8 @@
 .all{
-  background-color: #0c5460;
+  background-image: url("../../assets/img/back-2.jpg");
+
 }
+
 a:hover{
   color:#dfa974 ;
 }
@@ -201,4 +203,10 @@ textarea:-ms-input-placeholder {
 .booking-form form button:focus{
   background-color: #dfa974;
   color: white;
+}
+.error{
+  color: red;
+  padding-left: 15px;
+  font-size: 11px;
+
 }

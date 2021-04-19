@@ -11,11 +11,12 @@ export class LoginComponent implements OnInit {
 
   public loginForm = this.fb.group({
     username : ['', Validators.required ],
-    password :['', Validators.required ]
+    password : ['', Validators.required ]
  });
   constructor(private fb: FormBuilder) {}
   userModel = new User('', '');
-
+ get form(){ return this.loginForm.controls;
+ }
   ngOnInit(): void {}
   onSubmit(): void {
     console.log(this.loginForm.value);
