@@ -1,9 +1,16 @@
 .all{
-  background-color: #0c5460;
+  background-image: url("../../assets/img/back-2.jpg");
 }
 a:hover{
   color:#dfa974 ;
 }
+
+.hero-section {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
 @font-face {
   font-family: Poppins-Regular;
   src: url("../../assets/font/poppins/Poppins-Regular.ttf");
@@ -192,10 +199,17 @@ textarea:-ms-input-placeholder {
   padding-top: 12px;
 }
 .p-t-100 {
-  padding-top: 100px;
+  padding-top: 21px;
+  padding-bottom: 0px;
 }
 .text-center {
   text-align: center;
+}
+.error{
+  color: red;
+  padding-left: 15px;
+  font-size: 11px;
+
 }
 .booking-form form button:focus{
   background-color: #dfa974;
