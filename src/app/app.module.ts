@@ -9,13 +9,21 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ValidateEqualModule } from 'ng-validate-equal';
-
+import {HttpClientModule} from '@angular/common/http';
+import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-spaces-list.component';
+import { CoworkingspaceItemComponent } from './coworkingspace-item/coworkingspace-item.component';
+import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    CoworkingSpacesListComponent,
+    CoworkingspaceItemComponent,
+    CowSpaceDetailsComponent,
     NavbarComponent,
     FooterComponent,
   ],
@@ -25,6 +33,9 @@ import { ValidateEqualModule } from 'ng-validate-equal';
     ReactiveFormsModule,
     NgbModule,
     ValidateEqualModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
