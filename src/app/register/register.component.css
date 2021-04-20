@@ -4,6 +4,11 @@
 a:hover{
   color:#dfa974 ;
 }
+.booking-form h3{
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
 
 .hero-section {
   position: relative;
