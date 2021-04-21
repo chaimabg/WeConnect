@@ -20,7 +20,7 @@
             <div class="col-lg-4 col-md-6">
                 <form #searchForm="ngForm" (ngSubmit)="onSubmit()">
                     <div class="input-container">
-                        <input ngModel class="input-field" name="search" (change)="search($event)" type="text" placeholder="Search...">
+                        <input ngModel class="input-field" name="search" (keyup)="search($event)" type="text" placeholder="Search...">
                         <i class="icon_search icon"></i>
                     </div>
                 </form>
