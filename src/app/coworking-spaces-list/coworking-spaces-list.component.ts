@@ -17,7 +17,7 @@ export class CoworkingSpacesListComponent implements OnInit {
   value =50;
   constructor(private spaceService: SpaceService) { }
 
-  ngOnInit(): void {
+  getSpaces(): void{
     this.spaceService.getSpaces().subscribe(spaces => {
       this.spaces = spaces;
       this.isLoading = false;
@@ -26,7 +26,25 @@ export class CoworkingSpacesListComponent implements OnInit {
       this.isLoading = true;
       console.log(error);
     });
+  }
 
+  ngOnInit(): void {
+    this.getSpaces();
+  }
+
+  search(query: any): void{
+    if ((<HTMLInputElement>query.target).value == null){
+      this.getSpaces();
+    }else{
+      this.spaceService.getSpacesByQuery((<HTMLInputElement>query.target).value).subscribe(data=>{
+        this.spaces = data;
+        this.isLoading = false;
+      });
+    }
+
+  }
+
+  onSubmit (){
   }
 
 }

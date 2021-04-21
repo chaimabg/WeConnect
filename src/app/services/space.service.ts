@@ -12,6 +12,9 @@ export class SpaceService {
   getSpaces(): Observable<Space[]> {
     return this.http.get<Space[]>(this.spacesUrl);
   }
+  getSpacesByQuery(query: string): Observable<Space[]> {
+    return this.http.get<Space[]>(`${this.spacesUrl}/search/${query}`);
+  }
   getSpace(id: string): Observable<Space>{
     console.log('fetching...');
     return this.http.get<Space>(`${this.spacesUrl}/${id}`);
