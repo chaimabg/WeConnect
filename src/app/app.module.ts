@@ -11,6 +11,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ValidateEqualModule } from 'ng-validate-equal';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    ValidateEqualModule
   ],
   providers: [],
   bootstrap: [AppComponent]
