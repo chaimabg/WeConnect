@@ -16,6 +16,21 @@
 <section class="rooms-section spad">
     <div class="container">
         <div class="row">
+            <div class="col-lg-4 col-md-6"></div>
+            <div class="col-lg-4 col-md-6">
+                <form #searchForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="input-container">
+                        <input ngModel class="input-field" name="search" (change)="search($event)" type="text" placeholder="Search...">
+                        <i class="icon_search icon"></i>
+                    </div>
+                </form>
+                <br/><br/>
+            </div>
+            <div class="col-lg-4 col-md-6"></div>
+        </div>
+
+        <div class="row">
+
             <div *ngIf="isLoading" class="load">
                 <!-- <mat-spinner class="example-margin" [color]="color" [mode]="mode" [value]="value">
                 </mat-spinner> -->
