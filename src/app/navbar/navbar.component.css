@@ -167,6 +167,7 @@ ol {
 
 
 .loader {
+
     width: 40px;
     height: 40px;
     position: absolute;
@@ -177,6 +178,9 @@ ol {
     border-radius: 60px;
     animation: loader 0.8s linear infinite;
     -webkit-animation: loader 0.8s linear infinite;
+
+
+
 
 }
 
