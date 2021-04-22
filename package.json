@@ -27,6 +27,7 @@
     "font-awesome": "^4.7.0",
     "material-icons": "^0.6.1",
     "ng-validate-equal": "^1.0.4",
+    "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

@@ -194,3 +194,7 @@ ol {
     padding: 10px;
     outline: none;
 }
+
+.pag .current {
+    background: #dfa974;
+}

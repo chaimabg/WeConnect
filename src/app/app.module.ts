@@ -15,6 +15,7 @@ import { CoworkingspaceItemComponent } from './coworkingspace-item/coworkingspac
 import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {NgxPaginationModule} from 'ngx-pagination'
 
 
 
@@ -40,7 +41,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule,
     FormsModule,
     NgbModule,
-    ValidateEqualModule
+    ValidateEqualModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
