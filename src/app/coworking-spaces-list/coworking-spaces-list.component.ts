@@ -30,7 +30,7 @@ export class CoworkingSpacesListComponent implements OnInit {
   }
 
   search(query: any): void{
-    if ((<HTMLInputElement>query.target).value == null){
+    if ((<HTMLInputElement>query.target).value == ""){
       this.getSpaces();
     }else{
       this.spaceService.getSpacesByQuery((<HTMLInputElement>query.target).value).subscribe(data=>{
