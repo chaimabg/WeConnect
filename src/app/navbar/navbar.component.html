@@ -88,16 +88,16 @@
                                 <li class="active"><a routerLink="/">Home</a></li>
                                 <li><a  routerLink="/coworkingspaces">Workspaces</a></li>
                                 <li><a href="./about-us.html">About Us</a></li>
-                                <li><a routerLink="/login">Sign in </a>
+                                <li><a routerLink="/login" *ngIf="!token" >Sign in </a>
 
                                 </li>
 
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
                         </nav>
-                        <div class="nav-right search-switch">
-                            <i class="icon_search"></i>
-                        </div>
+                        <!--<div class="nav-right search-switch" *ngIf="token" (click)="signout()">
+                            <i class="fa fa-sign-out"></i>
+                        </div>-->
                     </div>
                 </div>
             </div>

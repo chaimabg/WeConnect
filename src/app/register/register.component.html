@@ -5,6 +5,7 @@
         <div class="booking-form">
 
           <h3 class="text-center">Welcome to WeConnect</h3>
+          <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
 
           <form (ngSubmit)="submit()" [formGroup]="registerForm">
 
