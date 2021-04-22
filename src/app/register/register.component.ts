@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
-
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +9,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+
+  }
+  get form() { return this.registerForm.controls; }
 
   // @ts-ignore
   public registerForm =  this.fb.group({
@@ -19,14 +23,25 @@ export class RegisterComponent implements OnInit {
     password: ['', [Validators.required, Validators.pattern('^.{5,}$')]],
     passwordConfirmation : ['', Validators.required]
     });
-  constructor(private fb: FormBuilder) { }
-  // tslint:disable-next-line:typedef
-  // @ts-ignore
-  get form() { return this.registerForm.controls; }
+   error: any;
+   user: any;
   ngOnInit(): void {
   }
  submit(): void{
-    console.log(this.registerForm.value);
-    console.log(this.registerForm.get('password')?.value);
+    const data = {
+      username: this.registerForm.value.username,
+      email: this.registerForm.value.email,
+      address: this.registerForm.value.address,
+      phoneNumber: this.registerForm.value.phone,
+      password: this.registerForm.value.password
+    };
+    this.http.post('http://localhost:5000/signup', data).toPromise().then((msg: any) => {
+      this.error = msg.error;
+      this.user = msg.username;
+      if ( !this.error){
+        this.router.navigateByUrl('/login').then(r => {});
+      }
+    });
+
  }
 }

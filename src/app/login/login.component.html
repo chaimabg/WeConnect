@@ -5,7 +5,7 @@
       <div class="col-xl-6 col-lg-6 offset-xl-3 offset-lg-2">
         <div class="booking-form">
           <h3 class="text-center">Sign In</h3>
-
+          <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
           <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
             <div class="wrap-input100 ">
