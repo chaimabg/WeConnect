@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
-import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { Space } from '../models/Space';
 import { SpaceService } from '../services/space.service';
+import {UserConnectedService} from '../services/userConnected.service';
+import {User} from '../models/User';
 
 @Component({
   selector: 'app-coworking-spaces-list',
@@ -11,18 +11,17 @@ import { SpaceService } from '../services/space.service';
 })
 export class CoworkingSpacesListComponent implements OnInit {
   spaces: Space[] = [];
-  color: ThemePalette = 'warn';
-  mode: ProgressSpinnerMode = 'determinate';
-  isLoading: boolean = true;
-  value =50;
-  constructor(private spaceService: SpaceService) { }
+  page: Number = 1;
+  maxSize: Number = 1;
+  isLoading = true;
+  constructor(private spaceService: SpaceService, private userService: UserConnectedService) { }
 
   getSpaces(): void{
     this.spaceService.getSpaces().subscribe(spaces => {
       this.spaces = spaces;
       this.isLoading = false;
     },
-    error =>{
+    error => {
       this.isLoading = true;
       console.log(error);
     });
@@ -33,18 +32,19 @@ export class CoworkingSpacesListComponent implements OnInit {
   }
 
   search(query: any): void{
-    if ((<HTMLInputElement>query.target).value == null){
+    if ((query.target as HTMLInputElement).value == null){
       this.getSpaces();
     }else{
-      this.spaceService.getSpacesByQuery((<HTMLInputElement>query.target).value).subscribe(data=>{
+      this.spaceService.getSpacesByQuery((query.target as HTMLInputElement).value).subscribe(data => {
         this.spaces = data;
         this.isLoading = false;
       });
     }
 
   }
+  onSubmit(){
 
-  onSubmit (){
   }
+
 
 }

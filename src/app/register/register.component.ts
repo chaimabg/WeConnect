@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -9,8 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
-
+  constructor(private fb: FormBuilder, private http: HttpClient,
+              private router: Router, private snackBar: MatSnackBar) {
   }
   get form() { return this.registerForm.controls; }
 
@@ -39,9 +40,16 @@ export class RegisterComponent implements OnInit {
       this.error = msg.error;
       this.user = msg.username;
       if ( !this.error){
-        this.router.navigateByUrl('/login').then(r => {});
+        const snack = this.snackBar.open('✔ ' + this.user + ', You have signed up succesfully', 'login', {
+          duration: 3000,
+          verticalPosition: 'top', // Allowed values are  'top' | 'bottom'
+          horizontalPosition: 'center', // Allowed values are 'start' | 'center' | 'end' | 'left' | 'right'
+          panelClass: 'test'
+        });
+        snack.onAction().subscribe(() => {
+          this.router.navigateByUrl('/login').then(r => {});
+        });
       }
     });
-
  }
 }

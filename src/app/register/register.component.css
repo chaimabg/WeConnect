@@ -1,5 +1,9 @@
 .all{
-  background-image: url("../../assets/img/back-2.jpg");
+  background-image: url('../../assets/img/back-2.jpg');
+}
+::ng-deep .test{
+  color: #dfa974;
+  width: 500px;
 }
 a:hover{
   color:#dfa974 ;
