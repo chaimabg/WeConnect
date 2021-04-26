@@ -1,0 +1,98 @@
+<section class="hero-section all ">
+  <div class="container ">
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 offset-xl-3 offset-lg-2">
+        <div class="booking-form">
+
+          <h3 class="text-center">Welcome to WeConnect</h3>
+          <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+
+          <form (ngSubmit)="submit()" [formGroup]="registerForm">
+
+            <div class="wrap-input100 ">
+              <input class="input100" type="text" placeholder="Username" formControlName="username">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+            </div>
+
+              <small class="error" *ngIf="form.username.invalid && form.username.touched ">*Required</small>
+
+            <div class="wrap-input100 ">
+              <input class="input100" type="email" placeholder="Email" formControlName="email">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+            </div>
+
+
+            <small class="error" *ngIf="form.email.touched && form.email.getError('required')">*Required </small>
+            <small class="error" *ngIf=" form.email.getError('email') "> Must be a valid email address</small>
+
+
+            <div class="wrap-input100 ">
+              <input class="input100" type="text" placeholder="Phone Number" formControlName="phone">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</span>
+            </div>
+
+            <small class="error" *ngIf=" form.phone.getError('pattern')  ">Must be a valid phone number</small>
+            <small  class="error" *ngIf=" form.phone.getError('required') && form.phone.touched ">*Required</small>
+
+            <div class="wrap-input100 ">
+              <input class="input100" type="email" placeholder="Address" formControlName="address">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+							<i class="fa fa-address-card" aria-hidden="true"></i>
+						</span>
+            </div>
+
+            <small class="error" *ngIf=" form.address.invalid && form.address.touched ">*Required</small>
+
+            <div class="wrap-input100 ">
+              <input class="input100" type="password" name="password" placeholder="Password" formControlName="password">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+            </div>
+
+            <small class="error" *ngIf=" form.password.getError('required')&& form.password.touched ">*Required</small>
+            <small class="error" *ngIf=" form.password.getError('pattern') ">Must be at least 5 characters</small>
+
+            <div class="wrap-input100 ">
+              <input class="input100" type="password" name="password" placeholder="Confirm Password"
+                     formControlName="passwordConfirmation" ngValidateEqual="password">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+            </div>
+
+            <small class="error" *ngIf=" form.passwordConfirmation.getError('required')&& form.passwordConfirmation.touched ">*Required</small>
+            <small class="error" *ngIf="form.passwordConfirmation.value != form.password.value && form.passwordConfirmation.dirty ">Must match password</small>
+
+            <button type="submit" [disabled]="registerForm.invalid || form.passwordConfirmation.value != form.password.value">Submit</button>
+
+            <div class="text-center p-t-12">
+              <div class="text-center p-t-100">
+                <a class="txt2" routerLink="/login">
+                  Have an Account
+                  <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                </a>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+

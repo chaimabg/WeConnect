@@ -1,6 +1,5 @@
 .all{
-  background-image: url("../../assets/img/2.jpg");
-
+  background-image: url("../../assets/img/back-2.jpg");
 }
 a:hover{
   color:#dfa974 ;
@@ -34,27 +33,11 @@ a:hover{
 /*------------------------------------------------------------------*/
 .wrap-input100 {
   position: relative;
-  width: 80%;
+  width: 100%;
   z-index: 1;
-  margin-top:20px;
-  margin-left:60px;
-  margin-right:30px;
+  margin-top: 20px;
 }
-.buttonsub{
-  margin-left:150px;
-  margin-right:90px;
 
-}
-.profil{
-
-  margin-left: 150px;
-
-  font-size:20px ;
-  color:#dfa974;
-}
-.edit{
-  margin-top: 200px;
-}
 .input100 {
   font-family: Poppins-Medium;
   font-size: 15px;
@@ -227,46 +210,13 @@ textarea:-ms-input-placeholder {
 .text-center {
   text-align: center;
 }
-.profil-2{
-margin-right:40px
-}
 .error{
   color: red;
-  margin-left: 120px;
+  padding-left: 15px;
   font-size: 11px;
 
-}
-.rd-text{
-
-
-
-  padding: 0px;
-
-  margin-left: 0px;
-  margin-right: 150px;
-
-}
-. rd-title{
-
-  margin-right: 20px;
-
- text-align: center;
-
-}
-.rd-title h1{
-  color: #dfa974;
-}
-.cowork{
-  text-align:center;
-  color:#dfa974
 }
 .booking-form form button:focus{
   background-color: #dfa974;
   color: white;
-}
-.col{
-  margin-top:150px;
-  margin-right:100px;
-  margin-left:100px;
-  padding-left: 0px;
 }
