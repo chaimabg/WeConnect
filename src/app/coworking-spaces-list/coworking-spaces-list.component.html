@@ -16,11 +16,29 @@
 <section class="rooms-section spad">
     <div class="container">
         <div class="row">
-            <div *ngIf="isLoading" class="load">
-                <!-- <mat-spinner class="example-margin" [color]="color" [mode]="mode" [value]="value">
-                </mat-spinner> -->
+            <div class="col-lg-4 col-md-6"></div>
+            <div class="col-lg-4 col-md-6">
+                <form #searchForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="input-container">
+                        <input ngModel class="input-field" name="search" (keyup)="search($event)" type="text" placeholder="Search...">
+                        <i class="icon_search icon"></i>
+                    </div>
+                </form>
+                <br/><br/>
             </div>
-            <app-coworkingspace-item *ngFor="let space of spaces" class="col-lg-4 col-md-6" [space]='space'></app-coworkingspace-item>
+            <div class="col-lg-4 col-md-6"></div>
         </div>
+
+        <div class="row">
+
+            <div *ngIf="isLoading" class="load">
+
+            </div>
+            <div *ngFor="let space of spaces | paginate: {id: 'listing_pagination', itemsPerPage: 6, currentPage: page.toString(), totalItems: spaces.length}" class="col-lg-4 col-md-6">
+                <app-coworkingspace-item [space]='space'></app-coworkingspace-item>
+            </div>
+        </div>
+        <pagination-controls class="pag text-right" id="listing_pagination" (pageChange)="page=$event"></pagination-controls>
+
     </div>
 </section>

@@ -1,6 +1,5 @@
 .all{
-  background-image: url("../../assets/img/back-2.jpg");
-
+  background-image: url('../../assets/img/back-2.jpg');
 }
 .booking-form h3{
   font-size: 30px;

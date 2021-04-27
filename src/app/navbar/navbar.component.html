@@ -11,22 +11,18 @@
     <div class="canvas-close">
         <i class="icon_close"></i>
     </div>
-    <div class="search-icon  search-switch">
-        <i class="icon_search"></i>
-    </div>
     <div class="header-configure-area">
-
         <a href="#" class="bk-btn">Add a coworking space </a>
     </div>
     <nav ng-controller="HeaderController" class="mainmenu mobile-menu">
         <ul>
             <li class="active"><a href="/">Home</a></li>
 
-          <li ng-class="{ active: isActive('/coworkingspaces')}"><a  routerLink="/coworkingspaces">workspaces</a></li>
-            <li><a >About Us</a></li>
-            <li><a routerLink="/login">Sign in </a></li>
+            <li><a routerLink="/coworkingspaces">workspaces</a></li>
+            <li><a>About Us</a></li>
 
-            <li><a >Contact</a></li>
+            <li><a routerLink="/login">Sign in </a></li>
+            <li><a>Contact</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -63,7 +59,7 @@
 
                             <a href="#"><i class="fa fa-instagram"></i></a>
                         </div>
-                        <a href="#" class="bk-btn">Add a coworking space</a>
+                        <a routerLink="/addSpace" class="bk-btn">Add a coworking space</a>
                         <div class="language-option">
 
                         </div>
@@ -87,12 +83,14 @@
                         <nav class="mainmenu">
                             <ul>
                                 <li class="active"><a routerLink="/">Home</a></li>
-                                <li><a  routerLink="/coworkingspaces">Workspaces</a></li>
+                                <li><a routerLink="/coworkingspaces">Workspaces</a></li>
                                 <li><a href="./about-us.html">About Us</a></li>
                                 <li><a routerLink="/login" *ngIf="!token" >Sign in </a>
 
                                 </li>
+
                               <li><a routerLink="/profile" *ngIf="token">profile</a></li>
+
 
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
@@ -106,12 +104,4 @@
         </div>
     </div>
 </header>
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch"><i class="icon_close"></i></div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
 <!-- Header End -->
