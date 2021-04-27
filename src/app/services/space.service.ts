@@ -30,7 +30,6 @@ export class SpaceService {
    formData.append('hourClose',space.hourClose.toString());
    const header = new HttpHeaders();
    const params = new HttpParams();
-
    const options = {
      params,
      reportProgress: true,
