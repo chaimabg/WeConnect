@@ -8,32 +8,42 @@
     <i class="icon_menu"></i>
 </div>
 <div class="offcanvas-menu-wrapper">
+
     <div class="canvas-close">
         <i class="icon_close"></i>
     </div>
+
+
     <div class="header-configure-area">
-        <a href="#" class="bk-btn">Add a coworking space </a>
+
+
+        <a routerLink="#" class="bk-btn">Add a coworking space </a>
+
     </div>
     <nav ng-controller="HeaderController" class="mainmenu mobile-menu">
         <ul>
             <li class="active"><a href="/">Home</a></li>
 
             <li><a routerLink="/coworkingspaces">workspaces</a></li>
-            <li><a>About Us</a></li>
 
-            <li><a routerLink="/login">Sign in </a></li>
+            <li><a routerLink="#">About Us</a></li>
+            <li><a routerLink="/login" *ngIf="!token">Sign in </a></li>
+          <li><a routerLink="/profile" *ngIf="token">profile</a></li>
             <li><a>Contact</a></li>
+            <li><a routerLink="/login" (click)="signout()" *ngIf="token">Sign Out </a></li>
+
+
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
     <div class="top-social">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-tripadvisor"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a routerLink="#"><i class="fa fa-facebook"></i></a>
+        <a routerLink="#"><i class="fa fa-twitter"></i></a>
+        <a routerLink="#"><i class="fa fa-tripadvisor"></i></a>
+        <a routerLink="#"><i class="fa fa-instagram"></i></a>
     </div>
     <ul class="top-widget">
-        <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+        <li><i class="fa fa-phone"></i> (216) 24 567 890</li>
         <li><i class="fa fa-envelope"></i> WeConnect@gmail.com</li>
     </ul>
 </div>
@@ -46,18 +56,18 @@
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="tn-left">
-                        <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+                        <li><i class="fa fa-phone"></i> (216) 24 567 890</li>
                         <li><i class="fa fa-envelope"></i>WeConnect@gmail.com</li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
                     <div class="tn-right">
                         <div class="top-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a routerLink="#"><i class="fa fa-facebook"></i></a>
+                            <a routerLink="#"><i class="fa fa-envelope"></i></a>
 
 
-                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a routerLink="#"><i class="fa fa-instagram"></i></a>
                         </div>
                         <a routerLink="/addSpace" class="bk-btn">Add a coworking space</a>
                         <div class="language-option">
@@ -73,7 +83,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="logo">
-                        <a href="./index.html">
+                        <a routerLink="./index.html">
                             <img src="img/logo.png" alt="">
                         </a>
                     </div>
@@ -84,20 +94,22 @@
                             <ul>
                                 <li class="active"><a routerLink="/">Home</a></li>
                                 <li><a routerLink="/coworkingspaces">Workspaces</a></li>
-                                <li><a href="./about-us.html">About Us</a></li>
-                                <li><a routerLink="/login" *ngIf="!token" >Sign in </a>
 
-                                </li>
 
+                                <li><a routerLink="./about-us.html">About Us</a></li>
+                                <li><a routerLink="/login" *ngIf="!token">Sign in </a></li>
                               <li><a routerLink="/profile" *ngIf="token">profile</a></li>
+                                <li><a routerLink="./contact.html">Contact</a></li>
+                                <li><a routerLink="/login" (click)="signout()" *ngIf="token">Sign Out </a></li>
 
 
-                                <li><a href="./contact.html">Contact</a></li>
+
+
+
+
+
                             </ul>
                         </nav>
-                        <!--<div class="nav-right search-switch" *ngIf="token" (click)="signout()">
-                            <i class="fa fa-sign-out"></i>
-                        </div>-->
                     </div>
                 </div>
             </div>

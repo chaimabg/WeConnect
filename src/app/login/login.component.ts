@@ -29,9 +29,12 @@ export class LoginComponent implements OnInit {
     this.http.post('http://localhost:5000/login', data).toPromise().then((msg: any) => {
       this.error = msg.error;
       if ( !this.error){
-        localStorage.setItem('user', JSON.stringify(msg));
-        // this.userConnected.setConnectedUser(msg);
-        this.router.navigateByUrl('/').then(r => {});
+
+        localStorage.setItem('users', JSON.stringify(msg));
+        this.router.navigateByUrl('/').then(r => {
+          window.location.reload();
+        });
+
       }
     });
   }

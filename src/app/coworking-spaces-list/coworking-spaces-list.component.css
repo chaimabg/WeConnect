@@ -172,6 +172,7 @@ ol {
     display: flex;
     width: 100%;
     margin-bottom: 15px;
+    /* margin-left: 380px; */
 }
 
 
@@ -194,6 +195,41 @@ ol {
     width: 100%;
     padding: 10px;
     outline: none;
+    border: none;
+    border-bottom: 1px solid #aaaab3;
+}
+
+.custom-pagination {
+    /* float: right; */
+    text-align: center;
+}
+
+.custom-pagination .page-number {
+    display: inline-block;
+    /* padding: 5px 12px; */
+    margin: 4px 4px;
+    border-radius: 50%;
+    /* padding-right: 1px; */
+    padding-top: 4px;
+}
+
+.page-number.current {
+    background: #dfa974!important;
+    /* border: 2px solid #458873; */
+}
+
+.page-number span {
+    display: block;
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.pagination-previous,
+.pagination-next {
+    display: inline-block;
+    font-weight: bold;
 }
 
 .pag .current {
