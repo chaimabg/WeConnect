@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UserConnectedService} from '../services/userConnected.service';
+import {UserService} from '../services/user.service';
 import {Space} from '../models/Space';
 import {SpaceService} from '../services/space.service';
 import {User} from '../models/User';
@@ -13,8 +13,8 @@ import {User} from '../models/User';
 })
 export class HomeComponent implements OnInit {
   spaces: Space[] = [];
- //user:any;
-  constructor(private userService: UserConnectedService, private spaceService: SpaceService) {
+  user!: User;
+  constructor(private userService: UserService, private spaceService: SpaceService) {
   }
   getSpaces(): void{
     this.spaceService.getSpaces().subscribe((spaces: Space[]) => {
@@ -26,11 +26,6 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getSpaces();
-
   }
- /* do(): void{
-   console.log(localStorage.getItem('user'));
-   this.user = JSON.parse( localStorage.getItem('user') as string)  ;
-   console.log( this.user.username );
-  }*/
+
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup,  Validators} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {UserConnectedService} from '../services/userConnected.service';
+import {UserService} from '../services/user.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import {UserConnectedService} from '../services/userConnected.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private userConnected: UserConnectedService) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private userService: UserService) {}
  get form(){ return this.loginForm.controls;
   }
 
@@ -19,14 +19,16 @@ export class LoginComponent implements OnInit {
     username : ['', Validators.required ],
     password : ['', Validators.required ]
  });
-  error: any;
+  error!: string;
   ngOnInit(): void {}
   onSubmit(): void {
     const data = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password
     };
-    this.http.post('http://localhost:5000/login', data).toPromise().then((msg: any) => {
+    this.error = this.userService.login(data.username, data.password);
+    console.log(this.error);
+    /*this.http.post('http://localhost:5000/login', data).toPromise().then((msg: any) => {
       this.error = msg.error;
       if ( !this.error){
 
@@ -36,6 +38,6 @@ export class LoginComponent implements OnInit {
         });
 
       }
-    });
+    });*/
   }
 }

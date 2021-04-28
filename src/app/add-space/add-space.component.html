@@ -1,1 +1,57 @@
-<p>add-space works!</p>
+<section class="hero-section all ">
+    <div class="container ">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 offset-xl-3 offset-lg-2">
+                <div class="booking-form">
+
+                    <h3 class="text-center">Welcome to WeConnect</h3>
+                    <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+
+                    <form (ngSubmit)="submit()" [formGroup]="addSpaceForm">
+
+                        <div class="wrap-input100 ">
+                            <input id="name" class="input100" type="text" placeholder="Name" formControlName="name">
+                            <span class="focus-input100"></span>
+
+                        </div>
+
+                        <small class="error" *ngIf="form.name.invalid && form.name.touched ">*Required</small>
+
+                        <div class="wrap-input100 ">
+                            <input class="input100" type="text" placeholder="Location" formControlName="location">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <small class="error" *ngIf="form.location.touched && form.location.getError('required')">*Required </small>
+                        <div class="wrap-input100 ">
+                            <input class="input100" onfocus="(this.type='time')" type="text" placeholder="Hour Open" formControlName="hourOpen">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <div class="wrap-input100 ">
+                            <input class="input100" onfocus="(this.type='time')" type="text" placeholder="Hour Close" formControlName="hourClose">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <div class="wrap-input100 ">
+                            <textarea class="input100" name="description" placeholder="Description...." formControlName="description">
+
+            </textarea>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 ">
+                            <input class="input100 file" onfocus="(this.type='file')" type="text" name="pictures" placeholder="Insert picture" formControlName="pictures" (change)="selectImage($event)">
+                            <span class="focus-input100"></span>
+
+                        </div>
+
+
+                        <button type="submit" [disabled]="addSpaceForm.invalid">Submit</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
