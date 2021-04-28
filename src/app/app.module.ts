@@ -16,7 +16,8 @@ import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { AddSpaceComponent } from './add-space/add-space.component'
+import { AddSpaceComponent } from './add-space/add-space.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 
 
 
@@ -31,6 +32,7 @@ import { AddSpaceComponent } from './add-space/add-space.component'
     NavbarComponent,
     FooterComponent,
     AddSpaceComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

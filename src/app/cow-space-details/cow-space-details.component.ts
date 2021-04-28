@@ -18,13 +18,14 @@ export class CowSpaceDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSpace(this.route.snapshot.params._id);
+    //if (this.space == null) this.router.navigateByUrl('/404NOTFOUND').then(r => {});
     // if (this.space.pictures != null && this.space.pictures != undefined) {}console.log(this.space.pictures);
   }
 
   getSpace(id:string):void{
     this.spaceService.getSpace(id).subscribe(data =>{
       this.space = data;
-      console.log(this.space.pictures);
+      console.log(this.space);
     })
   }
 
