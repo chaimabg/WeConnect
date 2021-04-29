@@ -16,6 +16,9 @@ export class UserService {
   getConnectedUser(): any {
     return JSON.parse(localStorage.getItem('users') as string);
   }
+  setConnectedUser(user: User): void{
+    localStorage.setItem('users', JSON.stringify(user));
+  }
 
 // @ts-ignore
   login(user: string, pass: string): any {
@@ -42,7 +45,7 @@ export class UserService {
     });
   }
   register(user: any): any{
-    this.http.post('http://localhost:5000/signup', user).toPromise().then((msg: any) => {
+    this.http.post('http://localhost:5000/user/signup', user).toPromise().then((msg: any) => {
       this.error = msg.error;
       if ( !this.error){
         const snack = this.snackBar.open('✔ ' + msg.username + ', You have signed up succesfully', 'login', {

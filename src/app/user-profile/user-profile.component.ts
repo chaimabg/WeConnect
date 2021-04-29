@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -9,9 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
-
-  }
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router,private userService: UserService) {}
   get form() { return this.editForm.controls; }
 
   public editForm =  this.fb.group({
@@ -28,7 +27,7 @@ export class UserProfileComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('users') as string);
+    this.user = this.userService.getConnectedUser();
     this.editForm.patchValue({
       username: this.user.username,
       email: this.user.email,
@@ -45,11 +44,12 @@ export class UserProfileComponent implements OnInit {
       password: this.editForm.value.password,
       _id: this.user._id
     };
-    this.http.put('http://localhost:5000/update', data).toPromise().then((msg: any) => {
+    this.http.put('http://localhost:5000/user/update', data).toPromise().then((msg: any) => {
       this.error = msg.error;
+      console.log(msg);
       if ( !this.error){
-        localStorage.setItem('users', JSON.stringify(msg));
-        this.router.navigateByUrl('/coworkingspaces').then(r => {});}
+        this.userService.setConnectedUser(msg);
+        this.router.navigateByUrl('/coworkingspaces').then(r => {}); }
       }) ;
   }
 }
