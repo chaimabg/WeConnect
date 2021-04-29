@@ -6,6 +6,7 @@ import {User} from '../models/User';
 
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,11 +15,14 @@ import {User} from '../models/User';
 export class HomeComponent implements OnInit {
   spaces: Space[] = [];
   user!: User;
+  style = {
+    backgroundImage: 'space.pictures[0]'
+  };
   constructor(private userService: UserService, private spaceService: SpaceService) {
   }
   getSpaces(): void{
     this.spaceService.getSpaces().subscribe((spaces: Space[]) => {
-        this.spaces = spaces.slice(0,4);
+        this.spaces = spaces.slice(0, 4);
       },
         (error: any) => {
         console.log(error);

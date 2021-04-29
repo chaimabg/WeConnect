@@ -8,7 +8,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class UserService {
-  private error!: string;
+  private error!: any;
+  private msg$ !: any;
 
   constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) {
   }
@@ -26,7 +27,8 @@ export class UserService {
       username: user,
       password: pass
     };
-    this.http.post('http://localhost:5000/login', data).toPromise().then((msg: any) => {
+    this.http.post('http://localhost:5000/login', data).toPromise()
+    .then((msg: any) => {
       this.error = msg.error;
       if (!this.error) {
         localStorage.setItem('users', JSON.stringify(msg));
@@ -34,7 +36,10 @@ export class UserService {
           window.location.reload();
         });
       }
-    });
+      });
+    console.log(this.msg$);
+
+
 
   }
 
