@@ -19,11 +19,11 @@ import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {NgxPaginationModule} from 'ngx-pagination';
-
 import { AddSpaceComponent } from './add-space/add-space.component';
 import { HomeComponent } from './home/home.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {UserConnectedService} from './services/userConnected.service';
+import {UserService} from './services/user.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -44,7 +44,8 @@ import {UserConnectedService} from './services/userConnected.service';
     AddSpaceComponent,
     HomeComponent,
 
-],
+    PageNotFoundComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -63,7 +64,7 @@ import {UserConnectedService} from './services/userConnected.service';
 
 
   ],
-  providers: [ UserConnectedService],
+  providers: [ UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

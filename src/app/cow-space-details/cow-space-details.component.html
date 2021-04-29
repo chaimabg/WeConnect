@@ -1,4 +1,5 @@
-<div class="breadcrumb-section">
+<!-- {{    if (space == null) this.router.navigateByUrl('/404NOTFOUND').then(r => {});}} -->
+<div *ngIf="space.name" class="breadcrumb-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -13,7 +14,7 @@
         </div>
     </div>
 </div>
-<section class="room-details-section spad">
+<section *ngIf="space.name" class="room-details-section spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -147,10 +148,14 @@
                     </form>
                 </div>
                 <br/><br/>
-                <img src="../../assets/img/back-2.jpg" alt=""><br/><br/>
+                <!-- <img src="../../assets/img/back-2.jpg" alt=""><br/><br/>
                 <img src="../../assets/img/back-2.jpg" alt=""><br/> <br/>
-                <img src="../../assets/img/back-2.jpg" alt=""> <br/><br/>
+                <img src="../../assets/img/back-2.jpg" alt=""> <br/><br/> -->
             </div>
         </div>
     </div>
+
 </section>
+<div *ngIf="!space.name">
+    <app-page-not-found></app-page-not-found>
+</div>

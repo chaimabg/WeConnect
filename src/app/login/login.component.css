@@ -1,6 +1,14 @@
 .all{
   background-image: url('../../assets/img/back-2.jpg');
 }
+.in{
+  border-color: #dfa974;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+  font-family: revert;
+  background-color:#dfa974 ;
+}
 .booking-form h3{
   font-size: 30px;
   font-weight: 500;

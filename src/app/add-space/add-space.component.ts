@@ -38,7 +38,7 @@ export class AddSpaceComponent implements OnInit {
    submit(): void{
     const formData = new FormData();
     formData.append('pictures', this.picture);
-    console.log(formData);
+    const user = JSON.parse(localStorage.getItem('users') as string);
     const  data = {
       name: this.addSpaceForm.value.name,
       location: this.addSpaceForm.value.location,
@@ -47,23 +47,32 @@ export class AddSpaceComponent implements OnInit {
       description: this.addSpaceForm.value.description,
       pictures: formData
     };
-// console.log(formData);
+
     this.space.name = data.name;
     this.space.location = data.location;
     this.space.hourClose = data.hourClose;
     this.space.hourOpen = data.hourOpen;
     this.space.description = data.description;
     console.log(this.space);
-    this.spaceService.postSpace(this.space,this.picture).subscribe(res => {
+    this.spaceService.postSpace(this.space,user.id,this.picture).subscribe(res => {
       console.log(res);
        this.submitted = true;
     },(err: any) => {
       console.log(err);
     });
+    if ( !this.error){
+      this.router.navigateByUrl('/coworkingspaces').then(r => {});
+    }
   }
 
 
   ngOnInit(): void {
+    const user = JSON.parse(localStorage.getItem('users') as string);
+    if (user === null){
+      this.router.navigateByUrl('/login').then(r => {
+      });
+    }
+
   }
 
 }

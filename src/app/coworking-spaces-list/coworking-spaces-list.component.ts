@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Space } from '../models/Space';
 import { SpaceService } from '../services/space.service';
-import {UserConnectedService} from '../services/userConnected.service';
+import {UserService} from '../services/user.service';
 import {User} from '../models/User';
 
 @Component({
@@ -21,7 +21,7 @@ export class CoworkingSpacesListComponent implements OnInit {
   page: number = 1;
   maxSize: number = 1;
   isLoading = true;
-  constructor(private spaceService: SpaceService, private userService: UserConnectedService) { }
+  constructor(private spaceService: SpaceService, private userService: UserService) { }
   // public maxSize: number = 7;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;

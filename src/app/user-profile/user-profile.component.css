@@ -1,5 +1,5 @@
 .all{
-  background-image: url("../../assets/img/back-1.jpg");
+  background-image: url("../../assets/img/back-2.jpg");
 
 }
 a:hover{
@@ -42,19 +42,20 @@ a:hover{
 }
 .buttonsub{
   margin-left:150px;
-  margin-right:90px;
+  margin-right:110px;
 
 }
 .profil{
 
-  margin-left: 150px;
+  margin-left: 160px;
 
-  font-size:20px ;
+  font-size:25px ;
   color:#dfa974;
 }
 .edit{
   margin-top: 200px;
 }
+
 .input100 {
   font-family: Poppins-Medium;
   font-size: 15px;
@@ -270,3 +271,44 @@ margin-right:40px
   margin-left:100px;
   padding-left: 0px;
 }
+
+
+
+.custom-pagination {
+  /* float: right; */
+  text-align: center;
+}
+
+.custom-pagination .page-number {
+  display: inline-block;
+  /* padding: 5px 12px; */
+  margin: 4px 4px;
+  border-radius: 50%;
+  /* padding-right: 1px; */
+  padding-top: 4px;
+}
+
+.page-number.current {
+  background: #dfa974!important;
+  /* border: 2px solid #458873; */
+}
+
+.page-number span {
+  display: block;
+  width: 28px;
+  height: 28px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.pagination-previous,
+.pagination-next {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.pag .current {
+  background: #dfa974;
+}
+
+
