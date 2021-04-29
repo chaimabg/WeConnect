@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
       this.error = msg.error;
       this.user = msg.username;
       if ( !this.error){
-        const snack = this.snackBar.open('✔ ' + this.user + ', You have signed up succesfully', 'login', {
+       /* const snack = this.snackBar.open('✔ ' + this.user + ', You have signed up succesfully', 'login', {
           duration: 3000,
           verticalPosition: 'top', // Allowed values are  'top' | 'bottom'
           horizontalPosition: 'center', // Allowed values are 'start' | 'center' | 'end' | 'left' | 'right'
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
         });
         snack.onAction().subscribe(() => {
           this.router.navigateByUrl('/login').then(r => {});
-        });
+        });*/
       }
     });
  }

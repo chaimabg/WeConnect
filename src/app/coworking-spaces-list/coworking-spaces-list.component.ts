@@ -12,7 +12,7 @@ import {User} from '../models/User';
 export class CoworkingSpacesListComponent implements OnInit {
   config = {
     id: 'custom',
-    itemsPerPage: 3,
+    itemsPerPage: 9,
     currentPage: 1,
     totalItems: 0
   };

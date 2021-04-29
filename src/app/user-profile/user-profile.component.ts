@@ -49,7 +49,7 @@ export class UserProfileComponent implements OnInit {
       this.error = msg.error;
       if ( !this.error){
         localStorage.setItem('users', JSON.stringify(msg));
-        this.router.navigateByUrl('/coworkingspaces').then(r => {});}
+        this.router.navigateByUrl('/').then(r => {});}
       }) ;
   }
 }

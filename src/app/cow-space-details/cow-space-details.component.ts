@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./cow-space-details.component.css']
 })
 export class CowSpaceDetailsComponent implements OnInit {
-  space!: Space;
+  space: Space = new Space;
   id!: string;
   constructor(private spaceService: SpaceService,
     private route: ActivatedRoute,
@@ -18,11 +18,13 @@ export class CowSpaceDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSpace(this.route.snapshot.params._id);
+    // if (this.space.pictures != null && this.space.pictures != undefined) {}console.log(this.space.pictures);
   }
 
   getSpace(id:string):void{
     this.spaceService.getSpace(id).subscribe(data =>{
       this.space = data;
+      console.log(this.space.pictures);
     })
   }
 
