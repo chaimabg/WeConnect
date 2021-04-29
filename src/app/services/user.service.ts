@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {User} from '../models/User';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {Space} from '../models/Space';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,7 @@ export class UserService {
 
   getConnectedUser(): any {
     return JSON.parse(localStorage.getItem('users') as string);
+    console.log('user',JSON.parse(localStorage.getItem('users') as string))
   }
   setConnectedUser(user: User): void{
     localStorage.setItem('users', JSON.stringify(user));
@@ -65,4 +67,31 @@ export class UserService {
       }
     });
   }
-}
+  update(user: any): any{
+    this.http.put('http://localhost:5000/user/update', user).toPromise().then((msg: any) => {
+      this.error = msg.error;
+      if ( !this.error){
+        this.setConnectedUser(msg);
+        const snack = this.snackBar.open('✔ ' + ' profile updated succesfully', 'home', {
+          duration: 3000,
+          verticalPosition: 'top', // Allowed values are  'top' | 'bottom'
+          horizontalPosition: 'center', // Allowed values are 'start' | 'center' | 'end' | 'left' | 'right'
+          panelClass: 'test'
+        });
+
+
+        snack.onAction().subscribe(() => {
+
+          this.router.navigateByUrl('/').then(r => {});
+        });
+      }
+    });
+  }
+
+  getUserSpaces(id: any): Observable<Space[]> {
+    return this.http.get<Space[]>(`http://localhost:5000/user/userspaces/${id}`);
+  }
+      }
+
+
+

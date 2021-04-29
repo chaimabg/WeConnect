@@ -128,57 +128,37 @@
           <h1 class="cowork">Your Co-Working Spaces</h1>
           </div>
           <br><br>
-          <!-- Rooms Section Begin -->
           <section class="rooms-section spad">
             <div class="container">
               <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <div class="room-item">
-                    <img src="../../assets/img/room/room-1.jpg" alt="">
-                    <div class="ri-text">
-                      <h2>Mind Up</h2>
-                      <h3>La Marsa</h3>
-                      <a href="#" class="primary-btn">More Details</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <div class="room-item">
-                    <img src="../../assets/img/1.jpg" alt="">
-                    <div class="ri-text">
-                      <h2>Zone</h2>
-                     <h3>Nasser</h3>
-                      <a href="#" class="primary-btn">More Details</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <div class="room-item">
-                    <img src="../../assets/img/a.jpg" alt="">
-                    <div class="ri-text">
-                      <h2>Luma</h2>
-                      <h3>Manar</h3>
-                      <a href="#" class="primary-btn">More Details</a>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-                <div class="col-lg-12">
-                  <div class="room-pagination">
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">Next <i class="fa fa-long-arrow-right"></i></a>
-                  </div>
+                <div *ngFor="let space of spaces | paginate: config" class="col-lg-4 col-md-6">
+                  <app-coworkingspace-item [space]='space'></app-coworkingspace-item>
                 </div>
               </div>
-            </div>
-          </section>
-          <!-- Rooms Section End -->
 
+
+
+
+              <pagination-template #p="paginationApi" [id]="config.id" (pageChange)="config.currentPage = $event">
+
+
+                <div class="custom-pagination">
+                  <div class="pagination-previous" [class.disabled]="p.isFirstPage()">
+                    <span *ngIf="!p.isFirstPage()" (click)="p.previous()"> <<
+                  </span>
+                  </div>
+                  <div class="page-number" *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+                    <span (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">{{ page.label }}</span>
+                    <div *ngIf="p.getCurrent() === page.value">
+                      <span>{{ page.label }}</span>
+                    </div>
+                  </div>
+                  <div class="pagination-next" [class.disabled]="p.isLastPage()">
+                    <span *ngIf="!p.isLastPage()" (click)="p.next()"> >> </span>
+                  </div>
+                </div>
+
+              </pagination-template>
         </div>
 
 

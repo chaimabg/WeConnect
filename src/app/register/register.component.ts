@@ -27,15 +27,18 @@ export class RegisterComponent implements OnInit {
    user: any;
   ngOnInit(): void {
   }
- submit(): void{
-    const data = {
-      username: this.registerForm.value.username,
-      email: this.registerForm.value.email,
-      address: this.registerForm.value.address,
-      phoneNumber: this.registerForm.value.phone,
-      password: this.registerForm.value.password
-    };
-    this.userService.register(data);
+ submit(): void {
+   const data = {
+     username: this.registerForm.value.username,
+     email: this.registerForm.value.email,
+     address: this.registerForm.value.address,
+     phoneNumber: this.registerForm.value.phone,
+     password: this.registerForm.value.password
+   };
+
+
+   this.userService.register(data);
 
  }
+
 }
