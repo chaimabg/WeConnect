@@ -67,18 +67,8 @@ export class UserService {
       this.error = msg.error;
       if ( !this.error){
         this.setConnectedUser(msg);
-        const snack = this.snackBar.open('✔ ' + ' profile updated succesfully', 'home', {
-          duration: 3000,
-          verticalPosition: 'top', // Allowed values are  'top' | 'bottom'
-          horizontalPosition: 'center', // Allowed values are 'start' | 'center' | 'end' | 'left' | 'right'
-          panelClass: 'test'
-        });
-
-
-        snack.onAction().subscribe(() => {
-
-          this.router.navigateByUrl('/').then(r => {});
-        });
+        window.location.reload();
+        //this.router.navigateByUrl('/').then(r => {});
       }
     });
   }

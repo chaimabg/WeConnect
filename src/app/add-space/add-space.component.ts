@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import { SpaceService } from '../services/space.service';
 import { Space } from '../models/Space';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Space } from '../models/Space';
 })
 export class AddSpaceComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private spaceService:SpaceService) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private spaceService:SpaceService, private userService:UserService) { }
   get form() { return this.addSpaceForm.controls; }
 
   public addSpaceForm =  this.fb.group({
@@ -38,7 +39,7 @@ export class AddSpaceComponent implements OnInit {
    submit(): void{
     const formData = new FormData();
     formData.append('pictures', this.picture);
-    const user = JSON.parse(localStorage.getItem('users') as string);
+    const user = this.userService.getConnectedUser();
     const  data = {
       name: this.addSpaceForm.value.name,
       location: this.addSpaceForm.value.location,
@@ -67,7 +68,7 @@ export class AddSpaceComponent implements OnInit {
 
 
   ngOnInit(): void {
-    const user = JSON.parse(localStorage.getItem('users') as string);
+    const user = this.userService.getConnectedUser();
     if (user === null){
       this.router.navigateByUrl('/login').then(r => {
       });
