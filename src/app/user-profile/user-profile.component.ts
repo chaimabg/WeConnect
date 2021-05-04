@@ -84,7 +84,7 @@ export class UserProfileComponent implements OnInit {
       password: this.editForm.value.password,
       _id: this.user._id
     };
-    console.log(this.user._id)
+    console.log(this.user._id);
 
     this.userService.update(data);
 
