@@ -9,6 +9,7 @@ import { AddSpaceComponent } from './add-space/add-space.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import {HomeComponent} from './home/home.component';
+import {AddReviewComponent} from "./add-review/add-review.component";
 
 
 const routes: Routes = [
@@ -19,8 +20,8 @@ const routes: Routes = [
   {path: 'profile', component:  UserProfileComponent},
   {path: 'addSpace', component: AddSpaceComponent},
   {path: '', component: HomeComponent},
-  {path: '404NOTFOUND', component: PageNotFoundComponent}
-
+  {path: '404NOTFOUND', component: PageNotFoundComponent},
+  {path: 'exp', component: AddReviewComponent}
 
 ];
 

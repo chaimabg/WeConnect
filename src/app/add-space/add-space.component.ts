@@ -54,7 +54,7 @@ export class AddSpaceComponent implements OnInit {
     this.space.hourOpen = data.hourOpen;
     this.space.description = data.description;
     console.log(this.space);
-    this.spaceService.postSpace(this.space,user.id,this.picture).subscribe(res => {
+    this.spaceService.postSpace(this.space, user._id,this.picture).subscribe(res => {
       console.log(res);
        this.submitted = true;
     },(err: any) => {

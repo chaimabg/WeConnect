@@ -29,7 +29,7 @@ export class SpaceService {
      formData.append('hourOpen',new String ("2021-04-18T").concat(space.hourOpen.toString()));
     formData.append('description',space.description);
    formData.append('hourClose',new String ("2021-04-18T").concat(space.hourClose.toString()));
-   formData.append('userId',userId);
+   formData.append('userId', userId);
    const header = new HttpHeaders();
    const params = new HttpParams();
    const options = {

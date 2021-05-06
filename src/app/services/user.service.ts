@@ -30,6 +30,7 @@ export class UserService {
     };
     this.http.post('http://localhost:5000/login', data).toPromise()
     .then((msg: any) => {
+      console.log(msg);
       this.error = msg.error;
       if (!this.error) {
         localStorage.setItem('users', JSON.stringify(msg));
@@ -53,6 +54,7 @@ export class UserService {
   register(user: any): any{
     this.http.post('http://localhost:5000/user/signup', user).toPromise().then((msg: any) => {
       this.error = msg.error;
+      console.log(msg);
       if ( !this.error){
         const snack = this.snackBar.open('✔ ' + msg.username + ', You have signed up succesfully', 'login', {
           duration: 3000,

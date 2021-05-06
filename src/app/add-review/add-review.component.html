@@ -1,0 +1,44 @@
+<div class="rd-reviews">
+  <h4>Reviews</h4>
+  <div *ngFor="let item of reviews">
+    <div class="review-item">
+      <div class="ri-pic">
+        <img src="../../assets/img/room/avatar/avatar-1.jpg" alt="">
+      </div>
+      <div class="ri-text">
+        <span>{{item.date}}</span>
+        <div class="rating">
+          <ngb-rating class="star" [(rate)]="item.rating" [readonly]="true"></ngb-rating>
+        </div>
+        <h5>{{item.name}}</h5>
+        <p>{{item.review}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="review-add">
+  <h4>Add Review</h4>
+  <form (ngSubmit)="submit()" [formGroup]="reviewForm" class="ra-form">
+    <div class="row">
+      <div class="col-lg-6">
+        <input type="text" placeholder="Name*" formControlName="name">
+      </div>
+      <div class="col-lg-6">
+        <input type="text" placeholder="Email*" formControlName="email">
+      </div>
+      <div class="col-lg-12">
+        <div>
+          <h5>You Rating:</h5>
+
+          <div class="rating">
+            <ngb-rating class="star" [(rate)]="currentRate"></ngb-rating>
+            <input type="text" formControlName="rating" [value]="currentRate" >
+          </div>
+        </div>
+        <textarea placeholder="Your Review" formControlName="review"></textarea>
+        <button type="submit">Submit Now</button>
+      </div>
+    </div>
+  </form>
+</div>

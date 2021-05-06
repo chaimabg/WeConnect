@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {UserService} from './services/user.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddReviewComponent } from './add-review/add-review.component';
 
 
 
@@ -39,12 +40,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CowSpaceDetailsComponent,
     NavbarComponent,
     FooterComponent,
-
-      UserProfileComponent,
+    UserProfileComponent,
     AddSpaceComponent,
     HomeComponent,
-
     PageNotFoundComponent,
+      AddReviewComponent,
   ],
   imports: [
     BrowserModule,
