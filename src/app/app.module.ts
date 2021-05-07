@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {UserService} from './services/user.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 
 
@@ -45,6 +46,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HomeComponent,
 
     PageNotFoundComponent,
+      PaymentPageComponent,
   ],
   imports: [
     BrowserModule,
