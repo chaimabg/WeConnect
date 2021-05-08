@@ -96,6 +96,8 @@ ol {
   font-weight: 700;
   position: relative;
 }
+
+
 .primary-btn:after {
   position: absolute;
   left: 0;
