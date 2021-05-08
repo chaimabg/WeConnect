@@ -47,7 +47,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getConnectedUser();
-
+    console.log(this.user);
     this.editForm.patchValue({
       username: this.user.username,
       email: this.user.email,

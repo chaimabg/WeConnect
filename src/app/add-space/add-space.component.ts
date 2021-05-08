@@ -13,7 +13,7 @@ import { Space } from '../models/Space';
 })
 export class AddSpaceComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private spaceService:SpaceService) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private spaceService: SpaceService) { }
   get form() { return this.addSpaceForm.controls; }
 
   public addSpaceForm =  this.fb.group({
@@ -25,7 +25,7 @@ export class AddSpaceComponent implements OnInit {
     description : ['']
     });
    error: any;
-   space:Space = new Space;
+   space: Space = new Space;
    picture:any;
    submitted: boolean = false;
    selectImage(event:any) {

@@ -24,6 +24,10 @@ import { HomeComponent } from './home/home.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {UserService} from './services/user.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EditSpaceComponent } from './edit-space/edit-space.component';
+import { SpaceItemComponent } from './space-item/space-item.component';
+
+
 
 
 
@@ -32,6 +36,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 @NgModule({
   declarations: [
     AppComponent,
+    EditSpaceComponent,
     LoginComponent,
     RegisterComponent,
     CoworkingSpacesListComponent,
@@ -45,6 +50,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HomeComponent,
 
     PageNotFoundComponent,
+      EditSpaceComponent,
+      SpaceItemComponent,
+
+
   ],
   imports: [
     BrowserModule,
