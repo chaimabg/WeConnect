@@ -12,6 +12,7 @@ export class SpaceService {
 spaceToAdd: Space = new Space;
 pictureToAdd!: File ;
 userId! : string ;
+submitted!: any;
   spacesUrl = 'http://localhost:5000/spaces';
   constructor(private http: HttpClient) { }
   getSpaces(): Observable<Space[]> {

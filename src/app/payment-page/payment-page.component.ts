@@ -36,22 +36,39 @@ export class PaymentPageComponent implements OnInit {
       yyyy : this.paymentForm.value.yyyy
     };
     console.log(data);
+    this.paymentInfoService.get(data.cardNumber).subscribe(datas =>{
+      if (datas.nameOnCard != data.nameOnCard){
+        this.error = "Incorrect Name On Card!";
+      }
+      if (datas.cvc != data.cvc){
+        this.error = "Incorrect  cvc!";
+      }
+      if (datas.mm != data.mm){
+        this.error = "Incorrect  mm";
+      }
+      if (datas.yyyy != data.yyyy){
+        this.error = "Incorrect  yyyy";
+      }
+      if (datas.sold < 200.0 ){
+        this.error = "Insufficient Sold";
+      }
+    });
     this.paymentInfoService.updatePaymentInfos(200,data).subscribe(datas=>{
       console.log(datas);
-      console.log("AAAAAAAAAAAAAAA");
       console.log(this.spaceService.spaceToAdd);
       console.log(this.spaceService.userId);
       this.spaceService.postSpace(this.spaceService.spaceToAdd,this.spaceService.userId,this.spaceService.pictureToAdd).subscribe(res => {
       console.log(res);
-      console.log("BBBBBBBBBBBBBBBBB");
       console.log(this.spaceService.spaceToAdd);
+      this.spaceService.submitted = "Space added with success";
+        console.log("success");
+        console.log(this.spaceService.submitted);
+           this.router.navigateByUrl('/coworkingspaces').then(r => {});
 
     },(err: any) => {
       console.log(err);
     });
-    if ( !this.error){
-      this.router.navigateByUrl('/coworkingspaces').then(r => {});
-    }
+
     }, (err)=>{
       console.log(err);
     })
