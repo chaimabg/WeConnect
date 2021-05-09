@@ -10,6 +10,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import {HomeComponent} from './home/home.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import {EditSpaceComponent} from './edit-space/edit-space.component';
+
 
 
 const routes: Routes = [
@@ -19,9 +21,12 @@ const routes: Routes = [
   {path: 'coworkingspace/:_id', component:  CowSpaceDetailsComponent},
   {path: 'profile', component:  UserProfileComponent},
   {path: 'addSpace', component: AddSpaceComponent},
+  {path: 'EditSpace/:_id', component: EditSpaceComponent},
   {path: '', component: HomeComponent},
   {path: '404NOTFOUND', component: PageNotFoundComponent},
   {path: 'payment', component: PaymentPageComponent}
+
+
 
 
 ];

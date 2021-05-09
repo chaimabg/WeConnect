@@ -17,6 +17,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class AddSpaceComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private spaceService:SpaceService, private userService:UserService) { }
+
   get form() { return this.addSpaceForm.controls; }
 
   public addSpaceForm =  this.fb.group({
@@ -28,7 +29,7 @@ export class AddSpaceComponent implements OnInit {
     description : ['']
     });
    error: any;
-   space:Space = new Space;
+   space: Space = new Space;
    picture:any;
    submitted: boolean = false;
    selectImage(event:any) {
@@ -57,15 +58,19 @@ export class AddSpaceComponent implements OnInit {
     this.space.hourOpen = data.hourOpen;
     this.space.description = data.description;
     console.log(this.space);
-    this.spaceService.postSpace(this.space,user._id,this.picture).subscribe(res => {
-      console.log(res);
-       this.submitted = true;
-    },(err: any) => {
-      console.log(err);
-    });
-    if ( !this.error){
-      this.router.navigateByUrl('/coworkingspaces').then(r => {});
-    }
+    this.spaceService.spaceToAdd = this.space;
+    this.spaceService.pictureToAdd = this.picture;
+    this.spaceService.userId = user._id;
+    this.router.navigateByUrl('/payment').then(r => {});
+    // this.spaceService.postSpace(this.space,user._id,this.picture).subscribe(res => {
+    //   console.log(res);
+    //    this.submitted = true;
+    // },(err: any) => {
+    //   console.log(err);
+    // });
+    // if ( !this.error){
+    //   this.router.navigateByUrl('/coworkingspaces').then(r => {});
+    // }
   }
 
 

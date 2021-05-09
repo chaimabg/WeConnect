@@ -6,7 +6,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SpaceService {
+  error: any;
+spaceToAdd: Space = new Space;
+pictureToAdd!: File ;
+userId! : string ;
   spacesUrl = 'http://localhost:5000/spaces';
   constructor(private http: HttpClient) { }
   getSpaces(): Observable<Space[]> {
@@ -19,7 +24,14 @@ export class SpaceService {
     console.log('fetching...');
     return this.http.get<Space>(`${this.spacesUrl}/${id}`);
   }
-
+  getSpacee(id: string): any {
+  this.http.get(`${this.spacesUrl}/${id}`).toPromise().then((msg: any) => {
+    this.error = msg.error;
+    if (!this.error) {
+     return msg;
+}
+});
+}
   postSpace(space:Space, userId:string, pictures:File): Observable<any> {
     // return this.http.post<Space[]>(this.spacesUrl,space );
     const formData = new FormData();

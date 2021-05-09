@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Space } from '../models/Space';
+import { PaymentInfoService } from '../services/payment-info.service';
+import { SpaceService } from '../services/space.service';
 
 @Component({
   selector: 'app-payment-page',
@@ -10,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class PaymentPageComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
+  constructor(private spaceService: SpaceService,private fb: FormBuilder, private http: HttpClient, private router: Router, private paymentInfoService:PaymentInfoService) { }
   get form(){ return this.paymentForm.controls;
   }
 
@@ -25,6 +28,34 @@ export class PaymentPageComponent implements OnInit {
  error!: string;
 
  onSubmit(){
+    const data = {
+      nameOnCard: this.paymentForm.value.name,
+      cardNumber: this.paymentForm.value.cardNumber,
+      cvc: this.paymentForm.value.cvc,
+      mm: this.paymentForm.value.mm,
+      yyyy : this.paymentForm.value.yyyy
+    };
+    console.log(data);
+    this.paymentInfoService.updatePaymentInfos(200,data).subscribe(datas=>{
+      console.log(datas);
+      console.log("AAAAAAAAAAAAAAA");
+      console.log(this.spaceService.spaceToAdd);
+      console.log(this.spaceService.userId);
+      this.spaceService.postSpace(this.spaceService.spaceToAdd,this.spaceService.userId,this.spaceService.pictureToAdd).subscribe(res => {
+      console.log(res);
+      console.log("BBBBBBBBBBBBBBBBB");
+      console.log(this.spaceService.spaceToAdd);
+
+    },(err: any) => {
+      console.log(err);
+    });
+    if ( !this.error){
+      this.router.navigateByUrl('/coworkingspaces').then(r => {});
+    }
+    }, (err)=>{
+      console.log(err);
+    })
+
 
  }
   ngOnInit(): void {
