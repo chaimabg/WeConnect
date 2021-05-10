@@ -36,11 +36,12 @@ export class HomeComponent implements OnInit {
   }
   getReviews(): void{
     this.reviewService.getReviews().subscribe(reviews => {
-        this.reviews = reviews;
+        this.reviews = this.reviewService.modifyReview(reviews);
       },
       error => {
         console.log(error);
       });
+
   }
 
   ngOnInit(): void {

@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../services/user.service';
-
+import {HttpClient} from "@angular/common/http";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-register',  templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb: FormBuilder, private userService:UserService) {
+  constructor(private fb: FormBuilder, private userService:UserService,
+              private http: HttpClient,private snackBar: MatSnackBar,private router: Router,) {
   }
   get form() { return this.registerForm.controls; }
 
@@ -33,7 +36,21 @@ export class RegisterComponent implements OnInit {
      password: this.registerForm.value.password
    };
 
-   this.userService.register(data);
+   this.http.post('http://localhost:5000/user/signup', data).toPromise().then((msg: any) => {
+     this.error = msg.error;
+     console.log(msg);
+     if ( !this.error){
+       const snack = this.snackBar.open('✔ ' + msg.username + ', You have signed up succesfully', 'login', {
+         duration: 3000,
+         verticalPosition: 'top', // Allowed values are  'top' | 'bottom'
+         horizontalPosition: 'center', // Allowed values are 'start' | 'center' | 'end' | 'left' | 'right'
+         panelClass: 'test'
+       });
+       snack.onAction().subscribe(() => {
+         this.router.navigateByUrl('/login').then(r => {});
+       });
+     }
+   });
 
  }
 

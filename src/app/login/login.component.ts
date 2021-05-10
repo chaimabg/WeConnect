@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {UserService} from '../services/user.service';
+
 
 
 @Component({
@@ -11,7 +11,7 @@ import {UserService} from '../services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private userService: UserService) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {}
  get form(){ return this.loginForm.controls;
   }
 
@@ -26,9 +26,8 @@ export class LoginComponent implements OnInit {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password
     };
-    this.error = this.userService.login(data.username, data.password);
-    console.log(this.error);
-    /*this.http.post('http://localhost:5000/login', data).toPromise().then((msg: any) => {
+
+    this.http.post('http://localhost:5000/login', data).toPromise().then((msg: any) => {
       this.error = msg.error;
       if ( !this.error){
 
@@ -38,6 +37,6 @@ export class LoginComponent implements OnInit {
         });
 
       }
-    });*/
+    });
   }
 }

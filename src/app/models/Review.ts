@@ -4,4 +4,5 @@ export class Review {
   date!:string;
   review!:string;
   email!:string;
+  workspace !: string;
 }

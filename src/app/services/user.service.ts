@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {User} from '../models/User';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { Observable} from 'rxjs';
 import {Space} from '../models/Space';
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class UserService {
   private error!: any;
   private msg$ !: any;
 
-  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   getConnectedUser(): any {
@@ -23,7 +22,7 @@ export class UserService {
   }
 
 // @ts-ignore
-  login(user: string, pass: string): any {
+ /* login(user: string, pass: string): any {
     const data = {
       username: user,
       password: pass
@@ -44,14 +43,14 @@ export class UserService {
 
 
   }
-
+*/
   logout(): void {
     localStorage.removeItem('users');
     this.router.navigateByUrl('/').then(r => {
       window.location.reload();
     });
   }
-  register(user: any): any{
+  /*register(user: any): any{
     this.http.post('http://localhost:5000/user/signup', user).toPromise().then((msg: any) => {
       this.error = msg.error;
       console.log(msg);
@@ -67,7 +66,7 @@ export class UserService {
         });
       }
     });
-  }
+  }*/
   update(user: any): any{
     this.http.put('http://localhost:5000/user/update', user).toPromise().then((msg: any) => {
       this.error = msg.error;
