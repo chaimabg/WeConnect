@@ -13,7 +13,7 @@ import {Space} from '../models/Space';
 export class EditSpaceComponent implements OnInit {
   error: any;
   space: any;
-  picture: any;
+
   id!: string;
   submitted: boolean = false;
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient, private router: Router, private spaceService: SpaceService) {
@@ -25,51 +25,39 @@ export class EditSpaceComponent implements OnInit {
   public editSpaceForm = this.fb.group({
     name: ['', [Validators.required] ],
     location: ['', [Validators.required]],
-    pictures: ['',[Validators.required]],
     hourOpen: [''],
     hourClose: [''],
     description: ['']
   });
 
 
-  selectImage(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.picture = file;
-      console.log(this.picture);
-    }
-    else{
-      this.picture = this.space.pictures[0];
-    }
-  }
 
 
 
   submit(): void {
-    const formData = new FormData();
-    formData.append('pictures', this.picture);
 
     const  data = {
       name: this.editSpaceForm.value.name,
       location: this.editSpaceForm.value.location,
-      hourOpen: this.editSpaceForm.value.hourOpen,
-      hourClose: this.editSpaceForm.value.hourClose,
+      hourOpen: new String ('2021-04-18T').concat(this.editSpaceForm.value.hourOpen.toString()),
+      hourClose: new String ('2021-04-18T').concat(this.editSpaceForm.value.hourClose.toString()),
       description: this.editSpaceForm.value.description,
-      pictures: formData,
-      _id: this.space._id
+
+      spaceId: this.space._id
     };
-    console.log(this.space._id);
 
 
-    this.spaceService.updateSpace(data, this.picture).subscribe(res => {
-      console.log(res);
+
+    this.spaceService.updateSpace(data).subscribe(res => {
+      console.log("hhhhhhhhhhhhhhhhhhhh",res);
+
       this.submitted = true;
     }, (err: any) => {
-      this.error= err;
-      console.log(err);
+      this.error = err;
+      console.log("errrrrrrrrrrrrrrrrr",err);
     });
     if ( !this.error){
-      this.router.navigateByUrl('/profile').then(r => {});
+      this.router.navigateByUrl('/coworkingspaces').then(r => {});
     }
   }
 
@@ -79,16 +67,15 @@ export class EditSpaceComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.space);
 
     this.spaceService.getSpace(this.route.snapshot.params._id).subscribe(data => {
-      console.log(data);
+
       this.space = data;
       this.editSpaceForm.patchValue({
         name: this.space.name,
         location: this.space.location,
-        hourOpen: this.space.hourOpen.toString().substring(11,16),
-        hourClose: this.space.hourClose.toString().substring(11,16),
+        hourOpen: this.space.hourOpen.toString().substring(11, 16),
+        hourClose: this.space.hourClose.toString().substring(11, 16),
         description: this.space.description
 
       });

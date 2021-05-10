@@ -6,8 +6,13 @@
     <h4> {{space.name}}</h4>
     <h5>{{space.location}}</h5>
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-lg-6">
         <a routerLink='/coworkingspace/{{space._id}} ' class="primary-btn">More Details</a>
+      </div>
+      <div class="col-2">
+        <a  class="primary-btn" data-toggle="modal" data-target="#myModal" (click)="f(space._id)">
+          <i class="fa fa-upload fa-2x"></i>
+        </a>
       </div>
       <div class="col-2">
         <a  class="primary-btn" routerLink='/EditSpace/{{space._id}}'>
@@ -20,3 +25,44 @@
         </a>
       </div>
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <div class="booking-form">
+
+              <h3 class="text-center">Update your pictures</h3>
+              <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+              <div class="alert alert-success" [class.d-none]="!success">{{success}}</div>
+
+              <form (ngSubmit)="submit()" [formGroup]="editPictureSpaceForm">
+
+                <div class="wrap-input100 ">
+                  <input class="input100 file" onfocus="(this.type='file')" type="text" name="pictures" placeholder="Insert a new picture" formControlName="pictures" (change)="selectImage($event)">
+                  <span class="focus-input100"></span>
+
+                </div>
+
+
+
+                <button type="submit" [disabled]="editPictureSpaceForm.invalid">Submit</button>
+
+
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (ngForm)="clear()">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+

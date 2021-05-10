@@ -33,6 +33,7 @@ import { SpaceItemComponent } from './space-item/space-item.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { SpaceItemComponent } from './space-item/space-item.component';
     PageNotFoundComponent,
       EditSpaceComponent,
       SpaceItemComponent,
+
 
 
   ],
