@@ -14,6 +14,7 @@ import {EditSpaceComponent} from './edit-space/edit-space.component';
 
 
 
+
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'profile', component:  UserProfileComponent},
   {path: 'addSpace', component: AddSpaceComponent},
   {path: 'EditSpace/:_id', component: EditSpaceComponent},
+
   {path: '', component: HomeComponent},
   {path: '404NOTFOUND', component: PageNotFoundComponent},
   {path: 'payment', component: PaymentPageComponent}

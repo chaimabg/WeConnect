@@ -6,22 +6,63 @@
     <h4> {{space.name}}</h4>
     <h5>{{space.location}}</h5>
     <div class="row">
-      <div class="col-8">
+      <div class="col-lg-6">
         <a routerLink='/coworkingspace/{{space._id}} ' class="primary-btn">More Details</a>
       </div>
-      <div class="col-1">
+      <div class="col-2">
+        <a  class="primary-btn" data-toggle="modal" data-target="#myModal" (click)="f(space._id)">
+          <i class="fa fa-upload fa-2x"></i>
+        </a>
+      </div>
+      <div class="col-2">
         <a  class="primary-btn" routerLink='/EditSpace/{{space._id}}'>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
-            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-          </svg>
+          <i class="fa fa-edit fa-2x"></i>
         </a>
       </div>
       <div class="col-1">
-        <a  class="primary-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-          </svg>
+        <a class="primary-btn" (click)="delete(space._id)">
+          <i class="fa fa-trash fa-2x"></i>
         </a>
       </div>
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <div class="booking-form">
+
+              <h3 class="text-center">Update your pictures</h3>
+              <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+              <div class="alert alert-success" [class.d-none]="!success">{{success}}</div>
+
+              <form (ngSubmit)="submit()" [formGroup]="editPictureSpaceForm">
+
+                <div class="wrap-input100 ">
+                  <input class="input100 file" onfocus="(this.type='file')" type="text" name="pictures" placeholder="Insert a new picture" formControlName="pictures" (change)="selectImage($event)">
+                  <span class="focus-input100"></span>
+
+                </div>
+
+
+
+                <button type="submit" [disabled]="editPictureSpaceForm.invalid">Submit</button>
+
+
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (ngForm)="clear()">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+

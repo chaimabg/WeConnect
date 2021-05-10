@@ -13,9 +13,9 @@ import {Space} from '../models/Space';
 export class EditSpaceComponent implements OnInit {
   error: any;
   space: any;
-  picture: any;
-  id!: string;
 
+  id!: string;
+  submitted: boolean = false;
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient, private router: Router, private spaceService: SpaceService) {
   }
 
@@ -25,52 +25,65 @@ export class EditSpaceComponent implements OnInit {
   public editSpaceForm = this.fb.group({
     name: ['', [Validators.required] ],
     location: ['', [Validators.required]],
-    pictures: ['', [Validators.required]],
     hourOpen: [''],
     hourClose: [''],
     description: ['']
   });
 
 
-  selectImage(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.picture = file;
-      console.log(this.picture);
+
+
+
+  submit(): void {
+
+    const  data = {
+      name: this.editSpaceForm.value.name,
+      location: this.editSpaceForm.value.location,
+      hourOpen: new String ('2021-04-18T').concat(this.editSpaceForm.value.hourOpen.toString()),
+      hourClose: new String ('2021-04-18T').concat(this.editSpaceForm.value.hourClose.toString()),
+      description: this.editSpaceForm.value.description,
+
+      spaceId: this.space._id
+    };
+
+
+
+    this.spaceService.updateSpace(data).subscribe(res => {
+      console.log("hhhhhhhhhhhhhhhhhhhh",res);
+
+      this.submitted = true;
+    }, (err: any) => {
+      this.error = err;
+      console.log("errrrrrrrrrrrrrrrrr",err);
+    });
+    if ( !this.error){
+      this.router.navigateByUrl('/coworkingspaces').then(r => {});
     }
   }
 
 
 
-  submit(): void {
-  }
 
 
   ngOnInit(): void {
 
-    console.log(this.space);
 
     this.spaceService.getSpace(this.route.snapshot.params._id).subscribe(data => {
-      console.log(data);
-      console.log("11111111111");
+
+
       this.space = data;
-      console.log("2222222222222");
-      console.log(this.space.name);
+      this.editSpaceForm.patchValue({
+        name: this.space.name,
+        location: this.space.location,
+        hourOpen: this.space.hourOpen.toString().substring(11, 16),
+        hourClose: this.space.hourClose.toString().substring(11, 16),
+        description: this.space.description
 
-    });
-    this.editSpaceForm.patchValue({
-      name: this.space.name
-
+      });
     });
 
   }
 
-  getSpace(id: string): any {
-  this.spaceService.getSpace(id).subscribe(data => {
-    console.log(data);
-    return data;
 
-    });
-  }
 
 }
