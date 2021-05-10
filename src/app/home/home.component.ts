@@ -3,6 +3,9 @@ import {UserService} from '../services/user.service';
 import {Space} from '../models/Space';
 import {SpaceService} from '../services/space.service';
 import {User} from '../models/User';
+import {Review} from "../models/Review";
+import {ReviewService} from "../services/review.service";
+import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -15,10 +18,13 @@ import {User} from '../models/User';
 export class HomeComponent implements OnInit {
   spaces: Space[] = [];
   user!: User;
+  reviews: Review[] = [];
   style = {
     backgroundImage: 'space.pictures[0]'
   };
-  constructor(private userService: UserService, private spaceService: SpaceService) {
+  constructor(private userService: UserService, private spaceService: SpaceService,
+              private reviewService: ReviewService, config: NgbRatingConfig) {
+    config.max = 5;
   }
   getSpaces(): void{
     this.spaceService.getSpaces().subscribe((spaces: Space[]) => {
@@ -28,7 +34,17 @@ export class HomeComponent implements OnInit {
         console.log(error);
       });
   }
+  getReviews(): void{
+    this.reviewService.getReviews().subscribe(reviews => {
+        this.reviews = reviews;
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
   ngOnInit(): void {
+    this.getReviews();
     this.getSpaces();
   }
 
