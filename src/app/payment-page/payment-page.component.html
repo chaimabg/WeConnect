@@ -1,0 +1,78 @@
+<section class="hero-section all">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xl-6 col-lg-6 offset-xl-3 offset-lg-2">
+                <div class="booking-form">
+                    <h3 class="text-center">Payment</h3>
+                    <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+                    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+                        <div class="wrap-input100 ">
+                            <input class="input100 " type="text" placeholder="Name On Card" formControlName="name">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+						                	<i class="fa fa-user" aria-hidden="true"></i>
+					                	</span>
+                        </div>
+
+                        <small class="error" *ngIf="form.name.touched && form.name.invalid ">*Required</small>
+                        <div class="wrap-input100 ">
+                            <input class="input100 " type="text" placeholder="Card Number" formControlName="cardNumber">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                            <i class="fa fa-id-card" aria-hidden="true"></i>
+                          </span>
+                        </div>
+
+                        <small class="error" *ngIf="form.cardNumber.touched && form.cardNumber.getError('required') ">*Required</small>
+                        <small class="error" *ngIf="form.cardNumber.touched && form.cardNumber.getError('pattern') ">*Must be a valid Card Number</small>
+
+                        <div class="wrap-input100 ">
+                            <input class="input100 " type="text" placeholder="CVC ex.311" formControlName="cvc">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                          <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        </div>
+
+                        <small class="error" *ngIf="form.cvc.touched && form.cvc.getError('required') ">*Required</small>
+                        <small class="error" *ngIf="form.cvc.touched && form.cvc.getError('pattern') ">*Must be a valid CVC</small>
+
+                        <div class="wrap-input100 ">
+                            <input class="input100 " type="text" placeholder="Expiration MM" formControlName="mm">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </span>
+                        </div>
+                        <small class="error" *ngIf="form.mm.touched && form.mm.getError('required') ">*Required</small>
+                        <small class="error" *ngIf="form.mm.touched && form.mm.getError('pattern') ">*Must be a valid month</small>
+
+                        <div class="wrap-input100 ">
+                            <input class="input100 " type="text" placeholder="Expiration YYYY" formControlName="yyyy">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </span>
+                        </div>
+                        <small class="error" *ngIf="form.yyyy.touched && form.yyyy.getError('required') ">*Required</small>
+                        <small class="error" *ngIf="form.yyyy.touched && form.yyyy.getError('pattern') ">*Must be a valid year</small>
+
+                        <br/>
+                        <h2>Payment Methods :</h2>
+                        <div class="cards text-center p-t-12">
+
+                            <img class="card" height="70px" width="100px" src="../../assets/img/mc.jpg" alt="">&nbsp; &nbsp;
+                            <img class="card" height="70px" width="100px" src="../../assets/img/visa.jpg" alt="">&nbsp; &nbsp;
+                            <img class="card" height="70px" width="100px" src="../../assets/img/paypal.png" alt="">
+
+                        </div>
+                        <button [disabled]="paymentForm.invalid" type="submit">Pay 200$</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

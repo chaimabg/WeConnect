@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import {HttpClientModule} from '@angular/common/http';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +25,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AddReviewComponent } from './add-review/add-review.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatIconModule} from "@angular/material/icon";
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { EditSpaceComponent } from './edit-space/edit-space.component';
+import { SpaceItemComponent } from './space-item/space-item.component';
 
 
 
@@ -35,6 +36,7 @@ import {MatIconModule} from "@angular/material/icon";
 @NgModule({
   declarations: [
     AppComponent,
+    EditSpaceComponent,
     LoginComponent,
     RegisterComponent,
     CoworkingSpacesListComponent,
@@ -47,6 +49,9 @@ import {MatIconModule} from "@angular/material/icon";
     HomeComponent,
     PageNotFoundComponent,
       AddReviewComponent,
+      PaymentPageComponent,
+      EditSpaceComponent,
+      SpaceItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,6 @@ import {MatIconModule} from "@angular/material/icon";
     MatSnackBarModule,
     MatMenuModule,
     MatIconModule,
-
 
   ],
   providers: [ UserService],

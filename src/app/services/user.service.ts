@@ -73,6 +73,7 @@ export class UserService {
       if ( !this.error){
         this.setConnectedUser(msg);
         window.location.reload();
+        //this.router.navigateByUrl('/').then(r => {});
       }
     });
   }

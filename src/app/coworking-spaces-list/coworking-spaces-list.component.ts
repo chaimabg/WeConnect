@@ -17,6 +17,7 @@ export class CoworkingSpacesListComponent implements OnInit {
     totalItems: 0
   };
   spaces: Space[] = [];
+  added:string = this.spaceService.submitted;
 
   page: number = 1;
   maxSize: number = 1;
@@ -38,6 +39,11 @@ export class CoworkingSpacesListComponent implements OnInit {
       this.spaces = spaces;
       this.isLoading = false;
       this.config.totalItems = this.spaces.length;
+      //this.added =
+      console.log("AAAAAAAAAAAAAAA");
+      console.log(this.spaceService.submitted);
+      console.log(this.added);
+
     },
     error => {
       this.isLoading = true;
@@ -47,6 +53,7 @@ export class CoworkingSpacesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSpaces();
+    this.clear();
   }
 
   search(query: any): void{
@@ -61,6 +68,9 @@ export class CoworkingSpacesListComponent implements OnInit {
       });
     }
 
+  }
+  clear(): void{
+    this.spaceService.submitted = null;
   }
 
   onSubmit(): void {

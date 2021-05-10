@@ -1,5 +1,5 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
-@import "~material-icons/iconfont/material-icons.css"
-html, body { height: 100%; }
+@import "~material-icons/iconfont/material-icons.css";
+html,body{height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

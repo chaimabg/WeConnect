@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import { SpaceService } from '../services/space.service';
 import { Space } from '../models/Space';
-import {UserService} from "../services/user.service";
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -28,7 +28,7 @@ export class AddSpaceComponent implements OnInit {
     description : ['']
     });
    error: any;
-   space:Space = new Space;
+   space: Space = new Space;
    picture:any;
    submitted: boolean = false;
    selectImage(event:any) {
@@ -56,15 +56,21 @@ export class AddSpaceComponent implements OnInit {
     this.space.hourOpen = data.hourOpen;
     this.space.description = data.description;
     console.log(this.space);
-    this.spaceService.postSpace(this.space, this.user._id,this.picture).subscribe(res => {
-      console.log(res);
-       this.submitted = true;
-    },(err: any) => {
-      console.log(err);
-    });
-    if ( !this.error){
-      this.router.navigateByUrl('/coworkingspaces').then(r => {});
-    }
+
+    this.spaceService.spaceToAdd = this.space;
+    this.spaceService.pictureToAdd = this.picture;
+    this.spaceService.userId = this.user._id;
+    this.router.navigateByUrl('/payment').then(r => {});
+    // this.spaceService.postSpace(this.space,user._id,this.picture).subscribe(res => {
+    //   console.log(res);
+    //    this.submitted = true;
+    // },(err: any) => {
+    //   console.log(err);
+    // });
+    // if ( !this.error){
+    //   this.router.navigateByUrl('/coworkingspaces').then(r => {});
+    // }
+
   }
 
 
