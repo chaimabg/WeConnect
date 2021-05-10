@@ -2,33 +2,34 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {User} from '../models/User';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { Observable} from 'rxjs';
 import {Space} from '../models/Space';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private error!: string;
+  private error!: any;
+  private msg$ !: any;
 
-  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   getConnectedUser(): any {
     return JSON.parse(localStorage.getItem('users') as string);
-    console.log('user',JSON.parse(localStorage.getItem('users') as string))
   }
   setConnectedUser(user: User): void{
     localStorage.setItem('users', JSON.stringify(user));
   }
 
 // @ts-ignore
-  login(user: string, pass: string): any {
+ /* login(user: string, pass: string): any {
     const data = {
       username: user,
       password: pass
     };
-    this.http.post('http://localhost:5000/login', data).toPromise().then((msg: any) => {
+    this.http.post('http://localhost:5000/login', data).toPromise()
+    .then((msg: any) => {
+      console.log(msg);
       this.error = msg.error;
       if (!this.error) {
         localStorage.setItem('users', JSON.stringify(msg));
@@ -36,19 +37,23 @@ export class UserService {
           window.location.reload();
         });
       }
-    });
+      });
+    console.log(this.msg$);
+
+
 
   }
-
+*/
   logout(): void {
     localStorage.removeItem('users');
     this.router.navigateByUrl('/').then(r => {
       window.location.reload();
     });
   }
-  register(user: any): any{
+  /*register(user: any): any{
     this.http.post('http://localhost:5000/user/signup', user).toPromise().then((msg: any) => {
       this.error = msg.error;
+      console.log(msg);
       if ( !this.error){
         const snack = this.snackBar.open('✔ ' + msg.username + ', You have signed up succesfully', 'login', {
           duration: 3000,
@@ -61,7 +66,7 @@ export class UserService {
         });
       }
     });
-  }
+  }*/
   update(user: any): any{
     this.http.put('http://localhost:5000/user/update', user).toPromise().then((msg: any) => {
       this.error = msg.error;

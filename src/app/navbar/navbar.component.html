@@ -98,11 +98,28 @@
 
                                 <li><a routerLink="./about-us.html">About Us</a></li>
                                 <li><a routerLink="/login" *ngIf="!token">Sign in </a></li>
-                              <li><a routerLink="/profile" *ngIf="token">profile</a></li>
+
                                 <li><a routerLink="./contact.html">Contact</a></li>
-                                <li><a routerLink="/login" (click)="signout()" *ngIf="token">Sign Out </a></li>
 
-
+                              <li *ngIf="token">
+                                <button mat-icon-button class="bt"  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                  <mat-icon>person </mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu" >
+                                  <button mat-menu-item disabled>{{token.username}}</button>
+                                  <button mat-menu-item routerLink="/profile">
+                                    <mat-icon>perm_identity</mat-icon>
+                                    <span> Profil</span>
+                                  </button>
+                                  <button mat-menu-item >
+                                    <mat-icon>https</mat-icon>
+                                    <span>Change Password</span>
+                                  </button>
+                                  <button mat-menu-item (click)="signout()">
+                                    <mat-icon>exit_to_app</mat-icon>
+                                    <span  >Sign Out</span>
+                                  </button>
+                                </mat-menu></li>
 
 
 

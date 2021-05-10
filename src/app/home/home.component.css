@@ -2,6 +2,10 @@
   padding-top: 145px;
 
 }
+.star{
+  color: #f5b917;
+  font-size: 25px;
+}
 .hero-text h1 {
   font-size: 80px;
   line-height: 90px;
@@ -33,4 +37,15 @@ a:hover{
   line-height: 58px;
   margin-top: 10px;
 }
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #dfa974;
 
+}
+.decoration{
+  text-decoration: underline overline #dfa974;
+  font-size: 25px;
+
+}

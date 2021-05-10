@@ -10,6 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./cow-space-details.component.css']
 })
 export class CowSpaceDetailsComponent implements OnInit {
+  title = 'My first AGM project';
+  lat = 51.678418;
+  lng = 7.809007;
   space: Space = new Space;
   id!: string;
   constructor(private spaceService: SpaceService,
