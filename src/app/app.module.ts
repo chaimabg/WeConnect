@@ -25,6 +25,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {UserService} from './services/user.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddReviewComponent } from './add-review/add-review.component';
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -61,6 +63,8 @@ import { AddReviewComponent } from './add-review/add-review.component';
 
     NgxPaginationModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatIconModule,
 
 
   ],
