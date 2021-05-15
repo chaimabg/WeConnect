@@ -28,6 +28,9 @@ import {MatIconModule} from "@angular/material/icon";
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { EditSpaceComponent } from './edit-space/edit-space.component';
 import { SpaceItemComponent } from './space-item/space-item.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { ForgetPassComponent } from './forget-pass/forget-pass.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 
@@ -52,6 +55,7 @@ import { SpaceItemComponent } from './space-item/space-item.component';
       PaymentPageComponent,
       EditSpaceComponent,
       SpaceItemComponent,
+      ForgetPassComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,11 +69,12 @@ import { SpaceItemComponent } from './space-item/space-item.component';
     FormsModule,
     NgbModule,
     ValidateEqualModule,
-
+    MatDialogModule,
     NgxPaginationModule,
     MatSnackBarModule,
     MatMenuModule,
     MatIconModule,
+    MatFormFieldModule,
 
   ],
   providers: [ UserService],

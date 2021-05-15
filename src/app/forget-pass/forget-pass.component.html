@@ -1,0 +1,25 @@
+<section class="hero-section">
+  <div class="container">
+    <a class="close" (click)="close()"><i class="fas fa-times "></i></a>
+    <div class="row">
+      <div class="booking-form">
+        <h3 class="text-center">Forget Your Password ?</h3>
+        <p>Please enter your email address you registered with and we will send you a code to reset your password </p>
+        <form [formGroup]="passForm" (ngSubmit)="save()">
+          <div class="wrap-input100 ">
+            <input class="input100 " type="text" placeholder=" email" formControlName="email">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+          </div>
+          <small class="error" *ngIf="form.email.touched && form.email.getError('required')">*Required </small>
+          <small class="error" *ngIf=" form.email.getError('email') "> Must be a valid email address</small>
+          <button type="submit" [disabled]="passForm.invalid">Send</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
