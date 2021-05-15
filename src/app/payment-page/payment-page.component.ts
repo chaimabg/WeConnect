@@ -65,6 +65,7 @@ export class PaymentPageComponent implements OnInit {
         console.log(this.spaceService.submitted);
            this.router.navigateByUrl('/coworkingspaces').then(r => {});
 
+
     },(err: any) => {
       console.log(err);
     });

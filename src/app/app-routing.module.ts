@@ -8,7 +8,6 @@ import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-
 import { AddSpaceComponent } from './add-space/add-space.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
-import {AddReviewComponent} from "./add-review/add-review.component";
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import {EditSpaceComponent} from './edit-space/edit-space.component';
 
@@ -23,7 +22,6 @@ const routes: Routes = [
   {path: 'EditSpace/:_id', component: EditSpaceComponent},
   {path: '', component: HomeComponent},
   {path: '404NOTFOUND', component: PageNotFoundComponent},
-  {path: 'exp', component: AddReviewComponent},
   {path: 'payment', component: PaymentPageComponent}
 
 ];

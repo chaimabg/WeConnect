@@ -17,7 +17,9 @@ a:hover {
   padding-top: 50px;
   padding-bottom: 20px;
 }
-
+.text-center{
+  color: #dfa974;;
+}
 @font-face {
   font-family: Poppins-Regular;
   src: url("../../assets/font/poppins/Poppins-Regular.ttf");
