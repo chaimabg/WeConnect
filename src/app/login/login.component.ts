@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
       id: 1,
       title: 'Angular For Beginners'
     };
-    dialogConfig.height='480px';
+    dialogConfig.height='550px';
     dialogConfig.width='550px';
 
     const dialogRef = this.dialog.open(ForgetPassComponent, dialogConfig);

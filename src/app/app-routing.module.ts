@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {HomeComponent} from './home/home.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import {EditSpaceComponent} from './edit-space/edit-space.component';
+import {ResetPassComponent} from "./forget-pass/reset-pass/reset-pass.component";
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'EditSpace/:_id', component: EditSpaceComponent},
   {path: '', component: HomeComponent},
   {path: '404NOTFOUND', component: PageNotFoundComponent},
-  {path: 'payment', component: PaymentPageComponent}
+  {path: 'payment', component: PaymentPageComponent},
+  {path: 'resetPassword/:token', component: ResetPassComponent}
 
 ];
 

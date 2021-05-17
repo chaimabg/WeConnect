@@ -31,6 +31,7 @@ import { SpaceItemComponent } from './space-item/space-item.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
+import { ResetPassComponent } from './forget-pass/reset-pass/reset-pass.component';
 
 
 
@@ -56,6 +57,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
       EditSpaceComponent,
       SpaceItemComponent,
       ForgetPassComponent,
+      ResetPassComponent,
   ],
   imports: [
     BrowserModule,
