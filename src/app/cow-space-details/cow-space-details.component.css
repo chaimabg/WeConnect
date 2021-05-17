@@ -7,6 +7,11 @@
   font-weight: 500;
   margin-bottom: 40px;
 }
+.error {
+  color: red;
+  padding-left: 15px;
+  font-size: 11px;
+}
 .breadcrumb-text {
     text-align: center;
 }
