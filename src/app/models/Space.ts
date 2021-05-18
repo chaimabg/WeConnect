@@ -7,4 +7,5 @@ export class Space {
   hourClose!:Date;
   pictures!: string[];
   joined!:Date;
+  capacity!:number;
 }

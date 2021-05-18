@@ -47,6 +47,7 @@ console.log(data);
       console.log(msg);
       if (!this.error) {
         this.router.navigateByUrl('/login');
+
       }
     });
 
@@ -61,6 +62,7 @@ console.log(data);
       console.log("vverify :"+this.error);
       if (!this.error) {
        this.CurrentState="validate";
+       this.userId = msg._id;
       }
     });
   }
