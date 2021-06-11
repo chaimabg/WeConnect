@@ -51,8 +51,7 @@ export class SpaceItemComponent implements OnInit {
       this.error= msg.error;
       console.log(msg);
       if (!this.error) {
-        this.router.navigateByUrl('/coworkingspaces').then(r => {
-        });
+        window.location.href = "/coworkingspaces";
       }
     });
   }

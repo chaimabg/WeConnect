@@ -21,7 +21,7 @@ export class CoworkingSpacesListComponent implements OnInit {
 
   page: number = 1;
   maxSize: number = 1;
-  isLoading = true;
+  isLoading!:boolean;
   constructor(private spaceService: SpaceService, private userService: UserService) { }
   // public maxSize: number = 7;
   public directionLinks: boolean = true;
@@ -35,18 +35,13 @@ export class CoworkingSpacesListComponent implements OnInit {
       screenReaderCurrentLabel: `You're on page`
   };
   getSpaces(): void{
+    this.isLoading = true;
     this.spaceService.getSpaces().subscribe(spaces => {
       this.spaces = spaces;
       this.isLoading = false;
       this.config.totalItems = this.spaces.length;
-      //this.added =
-      console.log("AAAAAAAAAAAAAAA");
-      console.log(this.spaceService.submitted);
-      console.log(this.added);
-
     },
     error => {
-      this.isLoading = true;
       console.log(error);
     });
   }

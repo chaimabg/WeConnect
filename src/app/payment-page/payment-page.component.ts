@@ -63,7 +63,11 @@ export class PaymentPageComponent implements OnInit {
       this.spaceService.submitted = "Space added with success";
         console.log("success");
         console.log(this.spaceService.submitted);
-           this.router.navigateByUrl('/coworkingspaces').then(r => {});
+           this.router.navigate(['/coworkingspaces']).then(r => {
+            //window.location.reload();
+
+
+           });
 
     },(err: any) => {
       console.log(err);
