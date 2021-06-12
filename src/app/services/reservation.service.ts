@@ -11,9 +11,10 @@ import {Router} from '@angular/router';
 export class ReservationService {
   reservationUrl = 'http://localhost:5000/reservations';
   constructor(private http: HttpClient, private router: Router) { }
-  getSpace(id: string ): Observable<any>{
+  getSpace(id: string, date: Date ): Observable<any>{
+    var data = {'id': id, 'date': date};
     console.log('fetching...');
-    return this.http.get<any>(`${this.reservationUrl}/${id}`);
+    return this.http.post<any>('http://localhost:5000/reservations/reserv', data);
   }
   createReservation(reservation: any): Observable<any> {
     return this.http.post<Space>('http://localhost:5000/reservations', reservation);

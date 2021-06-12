@@ -67,7 +67,7 @@ export class SpaceItemComponent implements OnInit {
 
     const  data = {
       pictures: this.picture,
-      _id: this.id
+
     };
     console.log("data",data)
     this.spaceService.updatePicture(data).subscribe(res => {

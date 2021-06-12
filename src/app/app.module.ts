@@ -32,6 +32,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { ResetPassComponent } from './forget-pass/reset-pass/reset-pass.component';
+import {PayementComponent} from "./payement/payement.component";
+
 
 
 
@@ -55,9 +57,11 @@ import { ResetPassComponent } from './forget-pass/reset-pass/reset-pass.componen
       AddReviewComponent,
       PaymentPageComponent,
       EditSpaceComponent,
+
       SpaceItemComponent,
       ForgetPassComponent,
       ResetPassComponent,
+      PayementComponent,
   ],
   imports: [
     BrowserModule,
