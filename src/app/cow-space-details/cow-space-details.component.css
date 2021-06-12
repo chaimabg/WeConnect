@@ -2,6 +2,10 @@
     padding-top: 70px;
     padding-bottom: 80px;
 }
+.star{
+  color: #f5b917;
+  font-size: 25px;
+}
 .room-booking h3{
   font-size: 30px;
   font-weight: 500;

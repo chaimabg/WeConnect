@@ -8,4 +8,7 @@ export class Space {
   pictures!: string[];
   joined!:Date;
   capacity!:number;
+  rating!: number;
+  sumRating!: number;
+  sumClient!: number ;
 }

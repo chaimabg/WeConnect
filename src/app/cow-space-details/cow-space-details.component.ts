@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 import {ReservationService} from '../services/reservation.service';
 import {User} from "../models/User";
 import {UserService} from "../services/user.service";
+import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
 
 
 @Component({
@@ -25,8 +26,9 @@ export class CowSpaceDetailsComponent implements OnInit {
   user!: User;
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient,
               private router: Router, private spaceService: SpaceService,private reservationService:ReservationService
-              ,private userService: UserService) {
+              ,private userService: UserService,config: NgbRatingConfig,) {
     this.user=this.userService.getConnectedUser();
+    config.max = 5;
   }
   get form() {
     return this.ReservationForm.controls;

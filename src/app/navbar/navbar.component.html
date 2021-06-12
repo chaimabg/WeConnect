@@ -99,7 +99,6 @@
                                 <li><a routerLink="./about-us.html">About Us</a></li>
                                 <li><a routerLink="/login" *ngIf="!token">Sign in </a></li>
 
-                                <li><a routerLink="./contact.html">Contact</a></li>
 
                               <li *ngIf="token">
                                 <button mat-icon-button class="bt"  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -111,7 +110,7 @@
                                     <mat-icon>perm_identity</mat-icon>
                                     <span> Profil</span>
                                   </button>
-                                  <button mat-menu-item >
+                                  <button mat-menu-item (click)="openDialog()">
                                     <mat-icon>https</mat-icon>
                                     <span>Change Password</span>
                                   </button>

@@ -27,11 +27,7 @@
                             <h3>{{space.name}}</h3>
                             <div class="rdt-right">
                                 <div class="rating">
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star"></i>
-                                    <i class="icon_star-half_alt"></i>
+                                  <ngb-rating class="star" [(rate)]="space.rating" [readonly]="true"></ngb-rating>
                                 </div>
 
                             </div>
