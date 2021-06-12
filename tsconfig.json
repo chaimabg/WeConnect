@@ -19,7 +19,8 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "types": ["google.maps"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -29,13 +29,6 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { EditSpaceComponent } from './edit-space/edit-space.component';
 import { SpaceItemComponent } from './space-item/space-item.component';
 
-
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +64,6 @@ import { SpaceItemComponent } from './space-item/space-item.component';
     FormsModule,
     NgbModule,
     ValidateEqualModule,
-
     NgxPaginationModule,
     MatSnackBarModule,
     MatMenuModule,

@@ -10,7 +10,7 @@
                 <a routerLink='/coworkingspace/{{space._id}} ' class="primary-btn">More Details</a>
             </div>
             <div class="col-2">
-                <a class="primary-btn" data-toggle="modal" data-target="#myModal" (click)="f(space._id)">
+                <a class="primary-btn" (click)="myfunction(space)" data-toggle="modal" data-target="#myModal">
                     <i class="fa fa-upload fa-2x"></i>
                 </a>
             </div>
@@ -48,8 +48,11 @@
                                     <span class="focus-input100"></span>
 
                                 </div>
+                                <div class="wrap-input100 ">
+                                    <input class="input100" type="text" value="{{space._id}}" name="idd">
+                                    <span class="focus-input100"></span>
 
-
+                                </div>
 
                                 <button type="submit" [disabled]="editPictureSpaceForm.invalid">Submit</button>
 
@@ -58,7 +61,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" (ngForm)="clear()">Close</button>
+                        <button type="button" class="btn btn-default" style="background-color:#dfa974" data-dismiss="modal"><span style="color:white">Close</span></button>
                     </div>
                 </div>
 

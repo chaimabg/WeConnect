@@ -33,7 +33,8 @@ export class SpaceItemComponent implements OnInit {
     return this.editPictureSpaceForm.controls;
   }
   public editPictureSpaceForm = this.fb.group({
-    pictures: ['', [Validators.required] ]
+    pictures: ['', [Validators.required] ],
+
 
   });
 
@@ -55,23 +56,33 @@ export class SpaceItemComponent implements OnInit {
       }
     });
   }
+  myfunction(id: any): void {
+   this.id=id;
+
+  }
 
   submit(): void {
+
+
     const  data = {
       pictures: this.picture,
       _id: this.id
     };
     console.log("bbb", data._id);
 
+    console.log("data",data)
     this.spaceService.updatePicture(data).subscribe(res => {
       console.log(res);
       this.submitted = true;
       this.success = 'picture uploaded successfully';
+     /* window.location.reload();*/
+
       this.picture= '';
     }, (err: any) => {
       this.err = err;
       console.log(err);
     });
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
   }
   f(id: any): void {
@@ -81,6 +92,8 @@ export class SpaceItemComponent implements OnInit {
 clear(): void{
     this.editPictureSpaceForm.reset() ;
 }
+
+
 
 }
 

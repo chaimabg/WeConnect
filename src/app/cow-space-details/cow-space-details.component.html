@@ -57,28 +57,41 @@
 
                     </div>
                 </div>
-              <app-add-review [space]="space"></app-add-review>
+                <app-add-review [space]="space"></app-add-review>
             </div>
             <div class="col-lg-4">
                 <div class="room-booking">
                     <h3>Your Reservation</h3>
-                    <form action="#">
+                    <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+                    <form (ngSubmit)="submit()" [formGroup]="ReservationForm">
                         <div class="check-date">
                             <label for="date-in">Date:</label>
-                            <input type="date" class="date-input" id="date-in">
+                            <input type="date" name="date" formControlName="date" class="date-input" id="date-in">
                             <!-- <i class="icon_calendar"></i> -->
                         </div>
+                        <small class="error" *ngIf="form.date.invalid && form.date.touched ">*Required</small>
                         <div class="check-date">
                             <label for="date-out">Time:</label>
-                            <input type="time" class="date-input" id="date-out">
+                            <input type="time" class="date-input" name="time" formControlName="time" id="date-out">
                             <!-- <i class="icon_calendar"></i> -->
                         </div>
+                        <small class="error" *ngIf="form.time.invalid && form.time.touched ">*Required</small>
                         <div class="check-date">
                             <label for="guest">Guests:</label>
-                            <input id="guest" type="number">
+                            <input id="guest" type="number" name="guests" formControlName="guests">
+
+                        </div>
+                        <small class="error" *ngIf="form.guests.invalid && form.guests.touched ">*Required</small>
+                        <div class="check-date">
+                            <label for="guest">Number of hours:</label>
+                            <input type="time" class="date-input" id="date-out" name="number" formControlName="number">
 
                         </div>
 
+                        <label for="guest" style="color:grey">Reserve all space:</label>
+                        <span style="margin-left: 20px">
+                      <input type="checkbox" name="all" name="AllSpace" formControlName="AllSpace">
+                      </span>
                         <button type="submit">Check Availability</button>
                     </form>
                 </div>
@@ -94,4 +107,3 @@
 <div *ngIf="!space.name">
     <app-page-not-found></app-page-not-found>
 </div>
-

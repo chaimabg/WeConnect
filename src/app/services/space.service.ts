@@ -22,6 +22,9 @@ submitted!: any;
   getSpacesByQuery(query: string): Observable<Space[]> {
     return this.http.get<Space[]>(`${this.spacesUrl}/search/${query}`);
   }
+  filterSpaces(query: string): Observable<Space[]> {
+    return this.http.get<Space[]>(`${this.spacesUrl}/filter/?${query}`);
+  }
   getSpace(id: string): Observable<Space>{
     console.log('fetching...');
     return this.http.get<Space>(`${this.spacesUrl}/${id}`);

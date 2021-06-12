@@ -2,11 +2,23 @@
     padding-top: 70px;
     padding-bottom: 80px;
 }
-.room-booking h3{
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 40px;
+
+agm-map {
+    height: 300px;
 }
+
+.room-booking h3 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.error {
+    color: red;
+    padding-left: 15px;
+    font-size: 11px;
+}
+
 .breadcrumb-text {
     text-align: center;
 }
