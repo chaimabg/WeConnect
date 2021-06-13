@@ -33,6 +33,8 @@ import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { ResetPassComponent } from './forget-pass/reset-pass/reset-pass.component';
 import {PayementComponent} from "./payement/payement.component";
+import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { ReservationItemComponent } from './reservation-item/reservation-item.component';
 
 
 
@@ -62,6 +64,8 @@ import {PayementComponent} from "./payement/payement.component";
       ForgetPassComponent,
       ResetPassComponent,
       PayementComponent,
+      ReservationListComponent,
+      ReservationItemComponent,
   ],
   imports: [
     BrowserModule,

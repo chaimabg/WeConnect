@@ -12,6 +12,7 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
 import {EditSpaceComponent} from './edit-space/edit-space.component';
 import {ResetPassComponent} from "./forget-pass/reset-pass/reset-pass.component";
 import {PayementComponent} from "./payement/payement.component";
+import {ReservationListComponent} from "./reservation-list/reservation-list.component";
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'profile', component:  UserProfileComponent},
   {path: 'addSpace', component: AddSpaceComponent},
   {path: 'EditSpace/:_id', component: EditSpaceComponent},
+  {path: 'ReservationList/:_id', component: ReservationListComponent},
   {path: '', component: HomeComponent},
   {path: '404NOTFOUND', component: PageNotFoundComponent},
   {path: 'payment', component: PaymentPageComponent},
