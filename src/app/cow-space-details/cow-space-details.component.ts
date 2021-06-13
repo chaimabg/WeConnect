@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {FormBuilder, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {ReservationService} from '../services/reservation.service';
+import {Loader} from "@googlemaps/js-api-loader";
 
 @Component({
   selector: 'app-cow-space-details',
@@ -13,8 +14,9 @@ import {ReservationService} from '../services/reservation.service';
 })
 export class CowSpaceDetailsComponent implements OnInit {
   title = 'My first AGM project';
-  lat = 51.678418;
-  lng = 7.809007;
+
+  lat = 36.86821;
+  lng = 10.31483;
   space: Space = new Space;
   id!: string;
   idd:any;
@@ -57,10 +59,8 @@ else{
         AllSpace: this.all,
         spaceId: this.idd
       };
-    console.log("dataaa",data)
 
       this.reservationService.createReservation(data).subscribe(res => {
-        console.log("res", res);
 
 
       }, (err: any) => {
@@ -84,17 +84,37 @@ else{
   this.idd= this.route.snapshot.params._id;
     this.reservationService.getSpace(this.idd).subscribe(res => {
       this.tab = res;
-      console.log("res",res);
     });
     this.getSpace(this.route.snapshot.params._id);
     //if (this.space == null) this.router.navigateByUrl('/404NOTFOUND').then(r => {});
     // if (this.space.pictures != null && this.space.pictures != undefined) {}console.log(this.space.pictures);
-  }
 
+
+  }
   getSpace(id:string):void{
     this.spaceService.getSpace(id).subscribe(data =>{
+      console.log(data);
       this.space = data;
-      console.log(this.space);
+let loader = new Loader({
+  apiKey: 'AIzaSyBxv6MiH_nXVIsFUzmX5txEET91Ax7trRU'
+});
+      loader.load().then(()=>{
+        const map = new google.maps.Map(document.getElementById('map') as HTMLMapElement,{
+          center: {lat: this.lat, lng: this.lng},
+          zoom:9
+        });
+        new google.maps.Marker({
+          position: {lat: this.space.latitudeMap, lng: this.space.longitudeMap},
+          map,
+          label: {
+            text: this.space.name,
+            color: 'white', // <= HERE
+            fontSize: '17px',
+            fontWeight: '500'
+
+          },
+        });
+      });
     })
   }
 

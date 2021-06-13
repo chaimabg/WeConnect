@@ -69,6 +69,7 @@ import { SpaceItemComponent } from './space-item/space-item.component';
     MatMenuModule,
     MatIconModule,
 
+
   ],
   providers: [ UserService],
   bootstrap: [AppComponent]

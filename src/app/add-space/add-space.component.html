@@ -24,6 +24,16 @@
                         </div>
                         <small class="error" *ngIf="form.location.touched && form.location.getError('required')">*Required </small>
                         <div class="wrap-input100 ">
+                            <input class="input100" type="text" placeholder="Latitude on Map" formControlName="latitudeMap">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <div class="wrap-input100 ">
+                            <input class="input100" type="text" placeholder="Longitude on Map" formControlName="longitudeMap">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <div class="wrap-input100 ">
                             <input class="input100" onfocus="(this.type='time')" type="text" placeholder="Hour Open" formControlName="hourOpen">
                             <span class="focus-input100"></span>
 

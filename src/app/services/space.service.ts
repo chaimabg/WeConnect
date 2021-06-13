@@ -31,11 +31,12 @@ submitted!: any;
   }
 
   postSpace(space:Space, userId:string, pictures:File): Observable<any> {
-    // return this.http.post<Space[]>(this.spacesUrl,space );
     const formData = new FormData();
   formData.append('pictures', pictures);
   formData.append('name',space.name);
   formData.append('location',space.location);
+  formData.append('latitudeMap',space.latitudeMap.toString());
+  formData.append('longitudeMap',space.longitudeMap.toString());
   formData.append('hourOpen',new String ("2021-04-18T").concat(space.hourOpen.toString()));
   formData.append('description',space.description);
   formData.append('hourClose',new String ("2021-04-18T").concat(space.hourClose.toString()));

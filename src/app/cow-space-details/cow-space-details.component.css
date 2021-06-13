@@ -3,8 +3,9 @@
     padding-bottom: 80px;
 }
 
-agm-map {
-    height: 300px;
+.full {
+    width: 500;
+    height: 450px
 }
 
 .room-booking h3 {

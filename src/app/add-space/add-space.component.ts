@@ -22,6 +22,8 @@ export class AddSpaceComponent implements OnInit {
   public addSpaceForm =  this.fb.group({
     name: ['', Validators.required],
     location: ['', Validators.required],
+    latitudeMap:[''],
+    longitudeMap:[''],
     pictures: ['', [Validators.required]],
     hourOpen: [''],
     hourClose: [''],
@@ -44,6 +46,8 @@ export class AddSpaceComponent implements OnInit {
     const  data = {
       name: this.addSpaceForm.value.name,
       location: this.addSpaceForm.value.location,
+      latitudeMap: this.addSpaceForm.value.latitudeMap,
+      longitudeMap: this.addSpaceForm.value.longitudeMap,
       hourOpen: this.addSpaceForm.value.hourOpen,
       hourClose: this.addSpaceForm.value.hourClose,
       description: this.addSpaceForm.value.description,
@@ -52,6 +56,8 @@ export class AddSpaceComponent implements OnInit {
 
     this.space.name = data.name;
     this.space.location = data.location;
+    this.space.latitudeMap = data.latitudeMap;
+    this.space.longitudeMap = data.longitudeMap;
     this.space.hourClose = data.hourClose;
     this.space.hourOpen = data.hourOpen;
     this.space.description = data.description;
