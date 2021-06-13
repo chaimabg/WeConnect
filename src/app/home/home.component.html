@@ -1,44 +1,44 @@
-   <ngb-carousel>
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper">
-            <img src="../../assets/img/back-1.jpg" alt="Random first slide">
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/img/back-1.jpg" alt="Random first slide">
+    </div>
+    <div class="carousel-caption hero-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="hero-text">
+              <h1>WeConnect</h1>
+              <p>Here are the best co-working booking sites, including recommendations for finding best price and
+                place.</p>
+              <a routerLink="/coworkingspaces" class="primary-btn">Discover Now </a>
+            </div>
           </div>
-          <div class="carousel-caption hero-section">
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <div class="hero-text">
-                    <h1>WeConnect</h1>
-                    <p>Here are the best co-working booking sites, including recommendations for finding best price and place.</p>
-                    <a routerLink="/coworkingspaces" class="primary-btn">Discover Now </a>
-                  </div>
-                </div>
-              </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/img/back-7.jpg" alt="Random first slide">
+    </div>
+    <div class="carousel-caption hero-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="hero-text">
+              <h1>WeConnect</h1>
+              <p>Here are the best co-working booking sites, including recommendations for finding best price and
+                place.</p>
+              <a routerLink="/coworkingspaces" class="primary-btn">Discover Now</a>
+            </div>
           </div>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper">
-            <img src="../../assets/img/back-7.jpg" alt="Random first slide">
-          </div>
-          <div class="carousel-caption hero-section">
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <div class="hero-text">
-                    <h1>WeConnect</h1>
-                    <p>Here are the best co-working booking sites, including recommendations for finding best price and place.</p>
-                    <a routerLink="/coworkingspaces" class="primary-btn">Discover Now</a>
-                  </div>
-                </div>
-              </div>
-          </div>
-          </div>
-        </ng-template>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 
-      </ngb-carousel>
-
-
+</ngb-carousel>
 
 
 <section class="services-section spad">
@@ -93,38 +93,38 @@
     <div class="hp-room-items">
       <div class="row">
         <div *ngFor="let space of spaces " class="col-lg-3 col-md-6">
-        <div  >
+          <div>
 
-        <div class="hp-room-item " style="background-image: url('../../assets/img/desk (1).jpg')">
-            <div class="hr-text">
-              <h3>{{space.name}}</h3>
-              <h2>5Dt<span>/Perperson</span></h2>
-              <table>
-                <tbody>
-                <tr>
-                  <td class="r-o">Location:</td>
-                  <td>{{space.location}}</td>
-                </tr>
-                <tr>
-                  <td class="r-o">Capacity:</td>
-                  <td>Max persion 5</td>
-                </tr>
-                <tr>
-                  <td class="r-o">Opening Hours:</td>
-                  <td>{{space.hourOpen.toString().substring(11,16)}}&nbsp;am&nbsp;-&nbsp;{{space.hourClose.toString().substring(11,16)}}&nbsp;pm</td>
-                </tr>
-                <tr>
-                  <td class="r-o">Services:</td>
-                  <td>Wifi, Television, Bathroom,...</td>
-                </tr>
-                </tbody>
-              </table>
-              <a routerLink='/coworkingspace/{{space._id}} ' class="primary-btn">Book Now</a>
+            <div class="hp-room-item " style="background-image: url('../../assets/img/desk (1).jpg')">
+              <div class="hr-text">
+                <h3>{{space.name}}</h3>
+                <h2>5Dt<span>/Perperson</span></h2>
+                <table>
+                  <tbody>
+                  <tr>
+                    <td class="r-o">Location:</td>
+                    <td>{{space.location}}</td>
+                  </tr>
+                  <tr>
+                    <td class="r-o">Capacity:</td>
+                    <td>Max persion 5</td>
+                  </tr>
+                  <tr>
+                    <td class="r-o">Opening Hours:</td>
+                    <td>{{space.hourOpen.toString().substring(11, 16)}}&nbsp;am&nbsp;-&nbsp;{{space.hourClose.toString().substring(11, 16)}}&nbsp;pm</td>
+                  </tr>
+                  <tr>
+                    <td class="r-o">Services:</td>
+                    <td>Wifi, Television, Bathroom,...</td>
+                  </tr>
+                  </tbody>
+                </table>
+                <a routerLink='/coworkingspace/{{space._id}} ' class="primary-btn">Book Now</a>
+              </div>
+
+
             </div>
-
-
-        </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>
@@ -132,53 +132,53 @@
 
 </section>
 
-   <section class="testimonial-section spad">
-     <div class="container">
-       <div class="row">
+<section class="testimonial-section spad">
+  <div class="container">
+    <div class="row">
 
-         <div class="col-lg-12">
-           <div class="section-title">
-             <span>Testimonials</span>
-             <h2>What Customers Say?</h2>
-           </div>
-         </div>
-       </div>
-       <div class="row">
-         <div class="col-lg-8 offset-lg-2">
-           <div class="testimonial-slider ">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <span>Testimonials</span>
+          <h2>What Customers Say?</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="testimonial-slider ">
 
-   <div id="carouselExampleControls" data-interval="false" class="carousel slide" data-ride="carousel">
-     <div class="carousel-inner">
-       <div class="carousel-item" *ngFor="let item of reviews let i = index"
-            [ngClass]="{'active': i == 0 }">
-         <div class="picsum-img-wrapper">
-           <div class="ts-item">
-             <p>{{item.review}}</p>
-             <div class="ti-author">
-               <div class="rating">
-                 <ngb-rating class="star" [(rate)]="item.rating" [readonly]="true"></ngb-rating>
-               </div>
-               <h5> - {{item.name}}</h5>
-             </div>
-             <h3 class="decoration">{{item.workspace}}</h3>
-           </div>
-         </div>
-       </div>
-       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-         <span class="sr-only">Previous</span>
-       </a>
-       <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-         <span class="sr-only">Next</span>
-       </a>
-     </div>
-   </div>
-     </div>
-         </div>
-       </div>
-     </div>
-   </section>
+          <div id="carouselExampleControls" data-interval="false" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item" *ngFor="let item of reviews let i = index"
+                   [ngClass]="{'active': i == 0 }">
+                <div class="picsum-img-wrapper">
+                  <div class="ts-item">
+                    <p>{{item.review}}</p>
+                    <div class="ti-author">
+                      <div class="rating">
+                        <ngb-rating class="star" [(rate)]="item.rating" [readonly]="true"></ngb-rating>
+                      </div>
+                      <h5> - {{item.name}}</h5>
+                    </div>
+                    <h3 class="decoration">{{item.workspace}}</h3>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="blog-section spad">
   <div class="container">

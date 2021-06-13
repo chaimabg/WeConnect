@@ -6,6 +6,7 @@ import {User} from '../models/User';
 import {Review} from "../models/Review";
 import {ReviewService} from "../services/review.service";
 import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
+import {EventService} from "../services/event.service";
 
 
 
@@ -19,11 +20,9 @@ export class HomeComponent implements OnInit {
   spaces: Space[] = [];
   user!: User;
   reviews: Review[] = [];
-  style = {
-    backgroundImage: 'space.pictures[0]'
-  };
+  events : any;
   constructor(private userService: UserService, private spaceService: SpaceService,
-              private reviewService: ReviewService, config: NgbRatingConfig) {
+              private reviewService: ReviewService, config: NgbRatingConfig, private eventService:EventService) {
     config.max = 5;
   }
   getSpaces(): void{
@@ -47,6 +46,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getReviews();
     this.getSpaces();
+    this.eventService.getEvents().subscribe(events =>
+      this.events =events
+    );
   }
 
 }

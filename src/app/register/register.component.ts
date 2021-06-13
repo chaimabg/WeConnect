@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
 
     this.http.post('http://localhost:5000/user/signup', data).toPromise().then((msg: any) => {
       this.error = msg.error;
-      console.log(msg);
       if (!this.error) {
         const snack = this.snackBar.open('✔ ' + msg.username + ', You have signed up succesfully', 'login', {
           duration: 3000,
