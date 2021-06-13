@@ -52,7 +52,7 @@ export class SpaceItemComponent implements OnInit {
       this.error= msg.error;
       console.log(msg);
       if (!this.error) {
-        window.location.href = "/coworkingspaces";
+        this.router.navigateByUrl('/coworkingspaces');
       }
     });
   }
@@ -66,9 +66,9 @@ export class SpaceItemComponent implements OnInit {
 
     const  data = {
       pictures: this.picture,
-      _id: this.id
+
     };
-    console.log("bbb", data._id);
+    //console.log("bbb", data._id);
 
     console.log("data",data)
     this.spaceService.updatePicture(data).subscribe(res => {

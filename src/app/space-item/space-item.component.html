@@ -3,11 +3,12 @@
     <img height="300px" width="400px" src={{space.pictures[0]}} alt="">
 
     <div class="ri-text">
-        <h4> {{space.name}}</h4>
+        <h4>
+            <a style="color:#dfa974" routerLink='/ReservationList/{{space._id}}'> {{space.name}}</a></h4>
         <h5>{{space.location}}</h5>
         <div class="row">
             <div class="col-lg-6">
-                <a routerLink='/coworkingspace/{{space._id}} ' class="primary-btn">More Details</a>
+                <a routerLink='/coworkingspace/{{space._id}}' class="primary-btn">More Details</a>
             </div>
             <div class="col-2">
                 <a class="primary-btn" (click)="myfunction(space)" data-toggle="modal" data-target="#myModal">
@@ -48,11 +49,6 @@
                                     <span class="focus-input100"></span>
 
                                 </div>
-                                <div class="wrap-input100 ">
-                                    <input class="input100" type="text" value="{{space._id}}" name="idd">
-                                    <span class="focus-input100"></span>
-
-                                </div>
 
                                 <button type="submit" [disabled]="editPictureSpaceForm.invalid">Submit</button>
 
@@ -67,3 +63,7 @@
 
             </div>
         </div>
+
+
+    </div>
+</div>

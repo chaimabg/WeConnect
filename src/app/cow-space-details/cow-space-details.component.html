@@ -60,8 +60,7 @@
                 <app-add-review [space]="space"></app-add-review>
             </div>
             <div class="col-lg-4">
-
-                <div class="room-booking">
+                <div class="room-booking" [hidden]="!user">
                     <h3>Your Reservation</h3>
                     <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
                     <form (ngSubmit)="submit()" [formGroup]="ReservationForm">
@@ -72,14 +71,14 @@
                         </div>
                         <small class="error" *ngIf="form.date.invalid && form.date.touched ">*Required</small>
                         <div class="check-date">
-                            <label for="date-out">Time:</label>
+                            <label for="date-out">From:</label>
                             <input type="time" class="date-input" name="time" formControlName="time" id="date-out">
                             <!-- <i class="icon_calendar"></i> -->
                         </div>
                         <small class="error" *ngIf="form.time.invalid && form.time.touched ">*Required</small>
                         <div class="check-date">
                             <label for="guest">Guests:</label>
-                            <input id="guest" type="number" name="guests" formControlName="guests">
+                            <input id="guest" type="number" name="guests" formControlName="guests" [max]="space.capacity" min="0">
 
                         </div>
                         <small class="error" *ngIf="form.guests.invalid && form.guests.touched ">*Required</small>

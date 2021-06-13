@@ -27,7 +27,8 @@ export class AddSpaceComponent implements OnInit {
     pictures: ['', [Validators.required]],
     hourOpen: [''],
     hourClose: [''],
-    description : ['']
+    description : [''],
+    capacity: ['', Validators.required],
     });
    error: any;
    space: Space = new Space;
@@ -51,6 +52,7 @@ export class AddSpaceComponent implements OnInit {
       hourOpen: this.addSpaceForm.value.hourOpen,
       hourClose: this.addSpaceForm.value.hourClose,
       description: this.addSpaceForm.value.description,
+      capacity: this.addSpaceForm.value.capacity,
       pictures: formData
     };
 
@@ -61,6 +63,8 @@ export class AddSpaceComponent implements OnInit {
     this.space.hourClose = data.hourClose;
     this.space.hourOpen = data.hourOpen;
     this.space.description = data.description;
+    this.space.capacity = data.capacity;
+
     console.log(this.space);
 
     this.spaceService.spaceToAdd = this.space;

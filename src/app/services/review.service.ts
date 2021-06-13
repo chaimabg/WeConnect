@@ -12,11 +12,9 @@ export class ReviewService {
   r :any =[];
   constructor(private http: HttpClient,private spaceService: SpaceService) { }
   getReviews(): Observable<Review[]>{
-    console.log('fetching...');
    return this.http.get<Review[]>(`${this.ReviewUrl}`);
   }
   getReview(id: string): Observable<Review[]>{
-    console.log('fetching...');
     return this.http.get<Review[]>(`${this.ReviewUrl}/${id}`);
   }
   addReview(data: any ): void{
@@ -28,8 +26,6 @@ export class ReviewService {
     reviews.forEach((item: any) => {
       this.spaceService.getSpace(item.workspace).subscribe(space =>{
         item.workspace = space.name;
-        console.log(space.name);
-        console.log(item)
       });
 
     });

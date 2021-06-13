@@ -74,7 +74,6 @@ export class EditSpaceComponent implements OnInit {
 
     this.spaceService.getSpace(this.route.snapshot.params._id).subscribe(data => {
 
-
       this.space = data;
       this.editSpaceForm.patchValue({
         name: this.space.name,

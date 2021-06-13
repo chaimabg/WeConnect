@@ -69,6 +69,7 @@ export class PaymentPageComponent implements OnInit {
 
            });
 
+
     },(err: any) => {
       console.log(err);
     });

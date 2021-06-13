@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule, HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
 import { Space } from '../models/Space';
 import { Observable } from 'rxjs';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -15,7 +15,7 @@ pictureToAdd!: File ;
 userId! : string ;
 submitted!: any;
   spacesUrl = 'http://localhost:5000/spaces';
-  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private http: HttpClient) { }
   getSpaces(): Observable<Space[]> {
     return this.http.get<Space[]>(this.spacesUrl);
   }
@@ -39,6 +39,8 @@ submitted!: any;
   formData.append('longitudeMap',space.longitudeMap.toString());
   formData.append('hourOpen',new String ("2021-04-18T").concat(space.hourOpen.toString()));
   formData.append('description',space.description);
+  formData.append('capacity',space.capacity.toString());
+
   formData.append('hourClose',new String ("2021-04-18T").concat(space.hourClose.toString()));
   formData.append('userId',userId);
   const header = new HttpHeaders();
@@ -66,6 +68,7 @@ submitted!: any;
       headers: header
     };
     const req = new HttpRequest('PUT', this.spacesUrl, formData, options);
+
     return this.http.request(req);
   }
  delete(spaceId: any): Observable<any>{

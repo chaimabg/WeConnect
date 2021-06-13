@@ -50,6 +50,12 @@
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 ">
+                            <input class="input100" type="text" placeholder="Capacity" formControlName="capacity">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <small class="error" *ngIf="form.capacity.touched && form.capacity.getError('required')">*Required </small>
+                        <div class="wrap-input100 ">
                             <input class="input100 file" onfocus="(this.type='file')" type="text" name="pictures" placeholder="Insert picture" formControlName="pictures" (change)="selectImage($event)">
                             <span class="focus-input100"></span>
 

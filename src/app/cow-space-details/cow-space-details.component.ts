@@ -6,6 +6,9 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {ReservationService} from '../services/reservation.service';
 import {Loader} from "@googlemaps/js-api-loader";
+import {User} from "../models/User";
+import {UserService} from "../services/user.service";
+
 
 @Component({
   selector: 'app-cow-space-details',
@@ -14,9 +17,6 @@ import {Loader} from "@googlemaps/js-api-loader";
 })
 export class CowSpaceDetailsComponent implements OnInit {
   title = 'My first AGM project';
-
-  lat = 36.86821;
-  lng = 10.31483;
   space: Space = new Space;
   id!: string;
   idd:any;
@@ -24,13 +24,19 @@ export class CowSpaceDetailsComponent implements OnInit {
   nulle : any;
   tab: any [] = [];
   error:any;
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient, private router: Router, private spaceService: SpaceService,private reservationService:ReservationService) {}
+  reserved:any;
+  user!: User;
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient,
+              private router: Router, private spaceService: SpaceService,private reservationService:ReservationService
+              ,private userService: UserService) {
+    this.user=this.userService.getConnectedUser();
+  }
   get form() {
     return this.ReservationForm.controls;
   }
   public ReservationForm = this.fb.group({
     date: ['', [Validators.required] ],
-    time: ['', [Validators.required]],
+   time: ['', [Validators.required]],
     guests: ['',[Validators.required]],
    number: [''],
    AllSpace: ['']
@@ -38,6 +44,11 @@ export class CowSpaceDetailsComponent implements OnInit {
 
 
 submit():void{
+  var d = this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00'));
+  this.reservationService.getSpace(this.idd, d).subscribe(res => {
+    this.tab = res;
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", this.tab);
+
 if (this.ReservationForm.value.number===""){
   this.nulle = null;
 }
@@ -50,41 +61,53 @@ if(this.ReservationForm.value.AllSpace===""){
 else{
   this.all = this.ReservationForm.value.AllSpace
 }
-    if (this.tab[0]['exists'] < this.tab[0]['capacity']) {
-      const data = {
-        date: this.ReservationForm.value.date.concat(new String('T20:20')),
-        time: new String('2021-04-18T').concat(this.ReservationForm.value.time.toString()),
-        guests: this.ReservationForm.value.guests,
-        NumberOfHours: this.nulle,
-        AllSpace: this.all,
-        spaceId: this.idd
-      };
+const diff = this.tab[0]['capacity'] -this.tab[0]['exists'];
+this.reserved=this.tab[0]['reserved'];
+console.log("difffffffffff",diff)
+    console.log(this.reserved)
 
-      this.reservationService.createReservation(data).subscribe(res => {
+      if (this.tab[0]['exists'] < this.tab[0]['capacity'] && !this.reserved) {
+        if (diff > this.ReservationForm.value.guests) {
+          const data = {
+            date: this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00')),
+            time: new String('2021-04-18T').concat(this.ReservationForm.value.time.toString()),
+            guests: this.ReservationForm.value.guests,
+            NumberOfHours: this.nulle,
+            AllSpace: this.all,
+            spaceId: this.space._id
+          };
+          console.log("dataaa", data);
 
-
-      }, (err: any) => {
-        this.error = err;
-        console.log("er", err);
-      });
-      if (!this.error) {
-        this.router.navigateByUrl('/coworkingspaces').then(r => {
-        });
+          this.reservationService.createReservation(data).subscribe(res => {
+            console.log("res", res);
+          }, (err: any) => {
+            this.error = err;
+            console.log("er", err);
+          });
+        } else {
+          this.error = "There are only " + diff + " places left !";
+        }
+        if (!this.error) {
+          this.router.navigateByUrl('/paymentPage').then(r => {
+          });
+        }
+      } else {
+        this.error = 'this space is full';
       }
-    } else {
-      this.error = 'this space is full';
-    }
 
+}
+  )
 }
 
 
 
 
   ngOnInit(): void {
+
   this.idd= this.route.snapshot.params._id;
-    this.reservationService.getSpace(this.idd).subscribe(res => {
-      this.tab = res;
-    });
+    // this.reservationService.getSpace(this.idd).subscribe(res => {
+    //   this.tab = res;
+    // });
     this.getSpace(this.route.snapshot.params._id);
     //if (this.space == null) this.router.navigateByUrl('/404NOTFOUND').then(r => {});
     // if (this.space.pictures != null && this.space.pictures != undefined) {}console.log(this.space.pictures);
@@ -100,7 +123,7 @@ let loader = new Loader({
 });
       loader.load().then(()=>{
         const map = new google.maps.Map(document.getElementById('map') as HTMLMapElement,{
-          center: {lat: this.lat, lng: this.lng},
+          center: {lat: this.space.latitudeMap, lng: this.space.longitudeMap},
           zoom:9
         });
         new google.maps.Marker({
