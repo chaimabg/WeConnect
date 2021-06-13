@@ -1,0 +1,11 @@
+<div  *ngFor="let event of events ">
+<h3 class="title">{{space.name}} Events</h3>
+  <div class=" example-1 scrollbar-ripe-malinka" >
+  <div class="blog-item" style="background-image: url('../../assets/img/happyh.jpg')">
+    <div class="bi-text">
+      <span class="b-tag">{{event.name}}</span>
+      <div class="b-time"><i class="icon_clock_alt"></i> {{event.date ? event.date.toString().substring(0, 10) : null}}</div>
+    </div>
+  </div>
+</div>
+</div>

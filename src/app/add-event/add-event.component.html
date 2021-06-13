@@ -1,0 +1,49 @@
+<section class="hero-section" >
+  <div class="container">
+    <a class="close" (click)="close()"><i class="fas fa-times "></i></a>
+    <div class="row">
+      <div class="booking-form">
+
+        <h3 class="text-center">Add Event</h3>
+
+
+        <form [formGroup]="eventForm" (ngSubmit)="save()">
+          <div class="wrap-input100 ">
+            <input id="name" class="input100" type="text" placeholder="Event name" formControlName="name">
+            <span class="focus-input100"></span>
+
+          </div>
+
+          <small class="error" *ngIf="form.name.invalid && form.name.touched ">*Required</small>
+          <div class="wrap-input100 ">
+            <input type="date" class="input100 "  name="date" formControlName="date" placeholder="Date" id="date-in">
+            <!-- <i class="icon_calendar"></i> -->
+          </div>
+
+          <small class="error" *ngIf="form.date.invalid && form.date.touched ">*Required</small>
+          <div class="wrap-input100 ">
+            <input class="input100" onfocus="(this.type='time')" type="text" placeholder="Opening Hour" formControlName="time">
+            <span class="focus-input100"></span>
+
+          </div>
+          <small class="error" *ngIf="form.time.invalid && form.time.touched ">*Required</small>
+          <div class="wrap-input100 ">
+            <input class="input100" name="description" placeholder="Description...." formControlName="description">
+
+
+            <span class="focus-input100"></span>
+          </div>
+
+
+          <small class="error" *ngIf="form.description.invalid && form.description.touched ">*Required</small>
+
+
+
+          <button type="submit" [disabled]="eventForm.invalid ">Submit</button>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
