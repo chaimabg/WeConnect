@@ -52,7 +52,7 @@ export class AddEventComponent implements OnInit {
     this.eventService.postEvent(event).subscribe(event => console.log(event)
     );
     this.close();
-
+   window.location.reload();
   }
 
 

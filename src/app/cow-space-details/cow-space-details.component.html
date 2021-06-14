@@ -29,7 +29,7 @@
                 <div class="rating">
                   <ngb-rating class="star" [(rate)]="space.rating" [readonly]="true"></ngb-rating>
                 </div>
-                <a (click)="openDialog()">Add Event</a>
+                <a [hidden]="!user" (click)="openDialog()">Add Event</a>
               </div>
             </div>
             <h2>{{space.location}}</h2>

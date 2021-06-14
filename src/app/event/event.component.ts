@@ -10,7 +10,7 @@ import {Event} from "../models/Event";
 })
 export class EventComponent implements OnInit {
   @Input() space: Space = new Space;
-   events : any;
+   events : Event[]=[];
   constructor(private eventService:EventService) { }
 
   ngOnInit(): void {
