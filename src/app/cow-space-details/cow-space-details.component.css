@@ -2,6 +2,7 @@
     padding-top: 70px;
     padding-bottom: 80px;
 }
+
 .star{
   color: #f5b917;
   font-size: 25px;
@@ -10,13 +11,22 @@
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 40px;
-  margin-left: 20px;
+  margin-left: 20px;}
+
+
+.full {
+    width: 500px;
+    height: 450px
 }
+
+
+
 .error {
-  color: red;
-  padding-left: 15px;
-  font-size: 11px;
+    color: red;
+    padding-left: 15px;
+    font-size: 11px;
 }
+
 .breadcrumb-text {
     text-align: center;
 }

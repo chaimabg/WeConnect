@@ -98,16 +98,12 @@
             <div class="hp-room-item " style="background-image: url('../../assets/img/desk (1).jpg')">
               <div class="hr-text">
                 <h3>{{space.name}}</h3>
-                <h2>5Dt<span>/Perperson</span></h2>
+                <h2>{{space.location}}</h2>
                 <table>
                   <tbody>
                   <tr>
-                    <td class="r-o">Location:</td>
-                    <td>{{space.location}}</td>
-                  </tr>
-                  <tr>
                     <td class="r-o">Capacity:</td>
-                    <td>Max persion 5</td>
+                    <td>{{space.capacity}}</td>
                   </tr>
                   <tr>
                     <td class="r-o">Opening Hours:</td>
@@ -119,7 +115,7 @@
                   </tr>
                   </tbody>
                 </table>
-                <a routerLink='/coworkingspace/{{space._id}} ' class="primary-btn">Book Now</a>
+                <a href='/coworkingspace/{{space._id}} ' class="primary-btn">Book Now</a>
               </div>
 
 

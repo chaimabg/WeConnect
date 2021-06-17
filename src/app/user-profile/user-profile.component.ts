@@ -47,7 +47,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getConnectedUser();
-    console.log(this.user);
+    //console.log(this.user);
     this.editForm.patchValue({
       username: this.user.username,
       email: this.user.email,
@@ -55,7 +55,7 @@ export class UserProfileComponent implements OnInit {
       address: this.user.address,
     });
     this.getSpaces(this.user._id);
-    console.log(this.spaces);
+    //console.log(this.spaces);
   }
 
   // @ts-ignore
@@ -64,7 +64,7 @@ export class UserProfileComponent implements OnInit {
         this.spaces = spacess;
         this.config.totalItems = this.spaces.length;
         this.isLoading = false;
-        console.log('hello', this.spaces);
+       // console.log('hello', this.spaces);
       },
       error  => {
         this.isLoading = true;

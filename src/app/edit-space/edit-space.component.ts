@@ -57,7 +57,11 @@ export class EditSpaceComponent implements OnInit {
       console.log("errrrrrrrrrrrrrrrrr",err);
     });
     if ( !this.error){
-      this.router.navigateByUrl('/coworkingspaces').then(r => {});
+
+        window.location.href = "/coworkingspaces";
+
+
+
     }
   }
 
@@ -80,7 +84,6 @@ export class EditSpaceComponent implements OnInit {
 
       });
     });
-
 
   }
 

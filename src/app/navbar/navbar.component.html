@@ -25,8 +25,6 @@
             <li class="active"><a href="/">Home</a></li>
 
             <li><a routerLink="/coworkingspaces">workspaces</a></li>
-
-            <li><a routerLink="#">About Us</a></li>
             <li><a routerLink="/login" *ngIf="!token">Sign in </a></li>
           <li><a routerLink="/profile" *ngIf="token">profile</a></li>
             <li><a>Contact</a></li>
@@ -95,8 +93,6 @@
                                 <li class="active"><a routerLink="/">Home</a></li>
                                 <li><a routerLink="/coworkingspaces">Workspaces</a></li>
 
-
-                                <li><a routerLink="./about-us.html">About Us</a></li>
                                 <li><a routerLink="/login" *ngIf="!token">Sign in </a></li>
 
 
@@ -108,7 +104,7 @@
                                   <button mat-menu-item disabled>{{token.username}}</button>
                                   <button mat-menu-item routerLink="/profile">
                                     <mat-icon>perm_identity</mat-icon>
-                                    <span> Profil</span>
+                                    <span> Profile</span>
                                   </button>
                                   <button mat-menu-item (click)="openDialog()">
                                     <mat-icon>https</mat-icon>

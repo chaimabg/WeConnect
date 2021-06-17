@@ -719,7 +719,7 @@ ul, ol {
 	transition: all 0.3s;
 }
 /*------------------------
-  Home Page Room Section 
+  Home Page Room Section
 -------------------------*/
 
 .hp-room-items {
@@ -743,7 +743,7 @@ ul, ol {
 	position: absolute;
 	left: 45px;
 	right: 25px;
-	bottom: -268px;
+	bottom: -232px;
 	-webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;

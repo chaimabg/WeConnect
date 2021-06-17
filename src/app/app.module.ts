@@ -35,6 +35,9 @@ import { ResetPassComponent } from './forget-pass/reset-pass/reset-pass.componen
 import { EditPasswordComponent } from './edit-password/edit-password.component';
 import { EventComponent } from './event/event.component';
 import { AddEventComponent } from './add-event/add-event.component';
+import {PayementComponent} from "./payement/payement.component";
+import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { ReservationItemComponent } from './reservation-item/reservation-item.component';
 
 
 
@@ -64,6 +67,9 @@ import { AddEventComponent } from './add-event/add-event.component';
       EditPasswordComponent,
       EventComponent,
       AddEventComponent,
+      PayementComponent,
+      ReservationListComponent,
+      ReservationItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +89,7 @@ import { AddEventComponent } from './add-event/add-event.component';
     MatMenuModule,
     MatIconModule,
     MatFormFieldModule,
+
 
   ],
   providers: [ UserService],

@@ -15,8 +15,7 @@ export class SpaceItemComponent implements OnInit {
   err: any;
   success: any;
   picture: any;
-
-  id: any;
+  id!: any;
   submitted: boolean = false;
   @Input()
   space: Space = new Space;
@@ -67,8 +66,10 @@ export class SpaceItemComponent implements OnInit {
 
     const  data = {
       pictures: this.picture,
-      _id: this.id
+
     };
+    //console.log("bbb", data._id);
+
     console.log("data",data)
     this.spaceService.updatePicture(data).subscribe(res => {
       console.log(res);
@@ -84,6 +85,13 @@ export class SpaceItemComponent implements OnInit {
     console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
   }
+  f(id: any): void {
+    this.id = id;
+    console.log("aaa", this.id);
+  }
+clear(): void{
+    this.editPictureSpaceForm.reset() ;
+}
 
 
 

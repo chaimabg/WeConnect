@@ -28,29 +28,38 @@ export class SpaceService {
     return this.http.get<Space[]>(`${this.spacesUrl}/search/${query}`);
   }
 
-  getSpace(id: string): Observable<Space> {
+
+  filterSpaces(query: string): Observable<Space[]> {
+    return this.http.get<Space[]>(`${this.spacesUrl}/filter/?${query}`);
+  }
+  getSpace(id: string): Observable<Space>{
+
     return this.http.get<Space>(`${this.spacesUrl}/${id}`);
   }
 
-  postSpace(space: Space, userId: string, pictures: File): Observable<any> {
+  postSpace(space:Space, userId:string, pictures:File): Observable<any> {
     const formData = new FormData();
-    formData.append('pictures', pictures);
-    formData.append('name', space.name);
-    formData.append('location', space.location);
-    formData.append('hourOpen', new String("2021-04-18T").concat(space.hourOpen.toString()));
-    formData.append('description', space.description);
-    formData.append('hourClose', new String("2021-04-18T").concat(space.hourClose.toString()));
-    formData.append('userId', userId);
-    const header = new HttpHeaders();
-    const params = new HttpParams();
-    const options = {
-      params,
-      reportProgress: true,
-      headers: header
-    };
-    const req = new HttpRequest('POST', this.spacesUrl, formData, options);
-    return this.http.request(req);
-  }
+  formData.append('pictures', pictures);
+  formData.append('name',space.name);
+  formData.append('location',space.location);
+  formData.append('latitudeMap',space.latitudeMap.toString());
+  formData.append('longitudeMap',space.longitudeMap.toString());
+  formData.append('hourOpen',new String ("2021-04-18T").concat(space.hourOpen.toString()));
+  formData.append('description',space.description);
+  formData.append('capacity',space.capacity.toString());
+
+  formData.append('hourClose',new String ("2021-04-18T").concat(space.hourClose.toString()));
+  formData.append('userId',userId);
+  const header = new HttpHeaders();
+  const params = new HttpParams();
+  const options = {
+    params,
+    reportProgress: true,
+    headers: header
+  };
+  const req = new HttpRequest('POST', this.spacesUrl, formData, options);
+  return this.http.request(req);
+}
 
   updateSpace(space: any): Observable<any> {
     return this.http.put<Space>('http://localhost:5000/updateSpace', space);

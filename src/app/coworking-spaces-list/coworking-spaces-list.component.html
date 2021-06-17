@@ -29,6 +29,25 @@
             </div>
             <div class="col-lg-4 col-md-6"></div>
         </div>
+        <div>
+            <div class="row">
+
+                <div class="col-lg-3 col-md-5"></div>
+                <div class="col-lg-6 col-md-8">
+                    <form [formGroup]="filterForm" (ngSubmit)="addFilter()">
+                        <div class="input-container ">
+                            <input ngModel class="input-field" name="location" type="text" placeholder="Location">
+                            <input ngModel class="input-field" name="hourOpen" onfocus="(this.type='time')" type="text" placeholder="Hour Open">
+                            <input ngModel class="input-field" name="hourClose" onfocus="(this.type='time')" type="text" placeholder="Hour Close">
+                            <button class="bt" type="submit">Apply filter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
         <div class="alert alert-success" [class.d-none]="!added">{{added}}</div>
 
         <div class="row">

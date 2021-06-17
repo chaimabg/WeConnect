@@ -1,0 +1,25 @@
+<div class="room-item">
+  <img height="200px" width="100px" src="../../assets/img/reservation.jpg"alt="">
+
+  <div class="ri-text">
+    <h5>{{reservation.identity}}</h5>
+    <h4>{{reservation.date.toString().substring(0, 10)}}</h4>
+    <h5> Starting From: {{reservation.time.toString().substring(11, 16)}}</h5>
+    <h5> Guests: {{reservation.guests}}</h5>
+    <h5> Reserve All The Space ? :
+      <span *ngIf="reservation.AllSpace">Yes</span>
+      <span *ngIf="! reservation.AllSpace">No</span>
+    </h5>
+
+
+
+
+    <div>
+    <a class="primary-btn" (click)="delete(reservation._id)">
+      <i class="fa fa-trash fa-2x"></i>
+    </a>
+     </div>
+  </div>
+  </div>
+
+

@@ -1,8 +1,7 @@
-
-<div *ngIf="reviews.length>0"  class="rd-reviews">
+<div *ngIf="reviews.length>0" class="rd-reviews">
   <h3 class="title">Reviews</h3>
   <div class="example-1 scrollbar-ripe-malinka">
-    <div *ngFor="let item of reviews" >
+    <div *ngFor="let item of reviews">
 
       <div class="review-item">
         <div class="ri-pic">
@@ -29,7 +28,7 @@
   <form (ngSubmit)="submit()" [formGroup]="reviewForm" class="ra-form">
 
     <div class="row">
-      <div  class="col-lg-6" [class.d-none]="connectedUser">
+      <div class="col-lg-6" [class.d-none]="connectedUser">
         <input type="text" placeholder="Name*" formControlName="name">
         <span class="error" *ngIf="form.name.touched && form.name.invalid ">*Required</span>
       </div>
@@ -50,7 +49,7 @@
         <textarea placeholder="Your Review*" formControlName="review"></textarea>
 
 
-        <button type="submit" >Submit Now</button>
+        <button type="submit">Submit Now</button>
 
       </div>
     </div>

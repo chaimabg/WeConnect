@@ -22,86 +22,87 @@
 
           <img height="450px" width="900px" src={{space.pictures[0]}} alt="">
 
-          <div class="rd-text">
-            <div class="rd-title">
-              <h3 class="title">{{space.name}}</h3>
-              <div class="rdt-right">
-                <div class="rating">
-                  <ngb-rating class="star" [(rate)]="space.rating" [readonly]="true"></ngb-rating>
+                    <div class="rd-text">
+                        <div class="rd-title">
+                            <h2>{{space.name}}</h2>
+                            <div class="rdt-right">
+                                <div class="rating">
+                                  <ngb-rating class="star" [(rate)]="space.rating" [readonly]="true"></ngb-rating>
+                                </div>
+                              <a [hidden]="!user" (click)="openDialog()">Add Event</a>
+                            </div>
+                        </div>
+                        <h3>{{space.location}}</h3>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="r-o">joined:</td>
+                                    <td>{{space.joined?space.joined.toString().substring(0,10):null}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Opening Hours:</td>
+                                    <td> {{space.hourOpen? space.hourOpen.toString().substring(11,16) : null}}&nbsp;&nbsp;-&nbsp;{{space.hourClose ? space.hourClose.toString().substring(11,16) : null}}&nbsp;(GMT)</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Description:</td>
+                                    <td>{{space.description}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
                 </div>
-                <a [hidden]="!user" (click)="openDialog()">Add Event</a>
-              </div>
+                <app-add-review [space]="space"></app-add-review>
             </div>
-            <h2>{{space.location}}</h2>
-            <table>
-              <tbody>
-              <tr>
-                <td class="r-o">joined:</td>
-                <td>{{space.joined ? space.joined.toString().substring(0, 10) : null}}</td>
-              </tr>
-              <tr>
-                <td class="r-o">Opening Hours:</td>
-                <td> {{space.hourOpen ? space.hourOpen.toString().substring(11, 16) : null}}&nbsp;am&nbsp;-&nbsp;{{space.hourClose ? space.hourClose.toString().substring(11, 16) : null}}&nbsp;pm</td>
-              </tr>
-              <tr>
-                <td class="r-o">Services:</td>
-                <td>Wifi, Television, Bathroom,...</td>
-              </tr>
-              </tbody>
-            </table>
+            <div class="col-lg-4">
+                <div class="room-booking" [hidden]="!user">
+                    <h3 class="title">Your Reservation</h3>
+                    <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+                    <form (ngSubmit)="submit()" [formGroup]="ReservationForm">
+                        <div class="check-date">
+                            <label for="date-in">Date:</label>
+                            <input type="date" name="date" formControlName="date" class="date-input" id="date-in">
+                            <!-- <i class="icon_calendar"></i> -->
+                        </div>
+                        <small class="error" *ngIf="form.date.invalid && form.date.touched ">*Required</small>
+                        <div class="check-date">
+                            <label for="date-out">From:</label>
+                            <input type="time" class="date-input" name="time" formControlName="time" id="date-out">
+                            <!-- <i class="icon_calendar"></i> -->
+                        </div>
+                        <small class="error" *ngIf="form.time.invalid && form.time.touched ">*Required</small>
+                        <div class="check-date">
+                            <label for="guest">Guests:</label>
+                            <input id="guest" type="number" name="guests" formControlName="guests" [max]="space.capacity" min="0">
 
+                        </div>
+                        <small class="error" *ngIf="form.guests.invalid && form.guests.touched ">*Required</small>
+                        <div class="check-date">
+                            <label for="guest">Number of hours:</label>
+                            <input type="time" class="date-input" id="date-out" name="number" formControlName="number">
 
-          </div>
-        </div>
-        <app-add-review [space]="space"></app-add-review>
-      </div>
-      <div class="col-lg-4">
-        <div class="room-booking" [hidden]="!user">
-          <h3 class="title">Your Reservation</h3>
-          <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
-          <form (ngSubmit)="submit()" [formGroup]="ReservationForm">
-            <div class="check-date">
-              <label for="date-in">Date:</label>
-              <input type="date" name="date" formControlName="date" class="date-input" id="date-in">
-              <!-- <i class="icon_calendar"></i> -->
-            </div>
-            <small class="error" *ngIf="form.date.invalid && form.date.touched ">*Required</small>
-            <div class="check-date">
-              <label for="date-out">Time:</label>
-              <input type="time" class="date-input" name="time" formControlName="time" id="date-out">
-              <!-- <i class="icon_calendar"></i> -->
-            </div>
-            <small class="error" *ngIf="form.time.invalid && form.time.touched ">*Required</small>
-            <div class="check-date">
-              <label for="guest">Guests:</label>
-              <input id="guest" type="number" name="guests" formControlName="guests" [max]="space.capacity" min="0">
+                        </div>
 
-            </div>
-            <small class="error" *ngIf="form.guests.invalid && form.guests.touched ">*Required</small>
-            <div class="check-date">
-              <label for="guest">Number of hours:</label>
-              <input type="time" class="date-input" id="date-out" name="number" formControlName="number">
-
-            </div>
-
-            <label for="guest" style="color:grey">Reserve all space:</label>
-            <span style="margin-left: 20px">
+                        <label for="guest" style="color:grey">Reserve all space:</label>
+                        <span style="margin-left: 20px">
                       <input type="checkbox" name="all" name="AllSpace" formControlName="AllSpace">
                       </span>
-            <button type="submit">Check Availability</button>
-          </form>
+                        <button type="submit">Check Availability</button>
+                    </form>
+                </div>
+                <br/><br/>
+                <div class="full" id="map">
+
+
         </div>
         <br/>
         <hr>
         <br/>
 
 
-
           <app-event [space]="space"></app-event>
 
-        <!-- <img src="../../assets/img/back-2.jpg" alt=""><br/><br/>
-        <img src="../../assets/img/back-2.jpg" alt=""><br/> <br/>
-        <img src="../../assets/img/back-2.jpg" alt=""> <br/><br/> -->
       </div>
     </div>
   </div>
@@ -110,4 +111,3 @@
 <div *ngIf="!space.name">
   <app-page-not-found></app-page-not-found>
 </div>
-
