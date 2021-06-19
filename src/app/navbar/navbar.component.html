@@ -1,0 +1,131 @@
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Offcanvas Menu Section Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="canvas-open">
+    <i class="icon_menu"></i>
+</div>
+<div class="offcanvas-menu-wrapper">
+
+    <div class="canvas-close">
+        <i class="icon_close"></i>
+    </div>
+
+
+    <div class="header-configure-area">
+
+
+        <a routerLink="#" class="bk-btn">Add a coworking space </a>
+
+    </div>
+    <nav ng-controller="HeaderController" class="mainmenu mobile-menu">
+        <ul>
+            <li class="active"><a href="/">Home</a></li>
+
+            <li><a routerLink="/coworkingspaces">workspaces</a></li>
+            <li><a routerLink="/login" *ngIf="!token">Sign in </a></li>
+          <li><a routerLink="/profile" *ngIf="token">profile</a></li>
+            <li><a>Contact</a></li>
+            <li><a routerLink="/login" (click)="signout()" *ngIf="token">Sign Out </a></li>
+
+
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+    <div class="top-social">
+        <a routerLink="#"><i class="fa fa-facebook"></i></a>
+        <a routerLink="#"><i class="fa fa-twitter"></i></a>
+        <a routerLink="#"><i class="fa fa-tripadvisor"></i></a>
+        <a routerLink="#"><i class="fa fa-instagram"></i></a>
+    </div>
+    <ul class="top-widget">
+        <li><i class="fa fa-phone"></i> (216) 24 567 890</li>
+        <li><i class="fa fa-envelope"></i> WeConnect@gmail.com</li>
+    </ul>
+</div>
+<!-- Offcanvas Menu Section End -->
+
+<!-- Header Section Begin -->
+<header class="header-section">
+    <div class="top-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="tn-left">
+                        <li><i class="fa fa-phone"></i> (216) 24 567 890</li>
+                        <li><i class="fa fa-envelope"></i>WeConnect@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tn-right">
+                        <div class="top-social">
+                            <a routerLink="#"><i class="fa fa-facebook"></i></a>
+                            <a routerLink="#"><i class="fa fa-envelope"></i></a>
+
+
+                            <a routerLink="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                        <a routerLink="/addSpace" class="bk-btn">Add a coworking space</a>
+                        <div class="language-option">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="logo">
+                        <a routerLink="./index.html">
+                            <img src="img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="nav-menu">
+                        <nav class="mainmenu">
+                            <ul>
+                                <li class="active"><a routerLink="/">Home</a></li>
+                                <li><a routerLink="/coworkingspaces">Workspaces</a></li>
+
+                                <li><a routerLink="/login" *ngIf="!token">Sign in </a></li>
+
+
+                              <li *ngIf="token">
+                                <button mat-icon-button class="bt"  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                  <mat-icon>person </mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu" >
+                                  <button mat-menu-item disabled>{{token.username}}</button>
+                                  <button mat-menu-item routerLink="/profile">
+                                    <mat-icon>perm_identity</mat-icon>
+                                    <span> Profile</span>
+                                  </button>
+                                  <button mat-menu-item (click)="openDialog()">
+                                    <mat-icon>https</mat-icon>
+                                    <span>Change Password</span>
+                                  </button>
+                                  <button mat-menu-item (click)="signout()">
+                                    <mat-icon>exit_to_app</mat-icon>
+                                    <span  >Sign Out</span>
+                                  </button>
+                                </mat-menu></li>
+
+
+
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->

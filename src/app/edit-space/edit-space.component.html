@@ -1,0 +1,53 @@
+<section class="hero-section all ">
+    <div class="container ">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 offset-xl-3 offset-lg-2">
+                <div class="booking-form">
+
+                    <h3 class="text-center">Edit Your Space</h3>
+                    <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+                    <form (ngSubmit)="submit()" [formGroup]="editSpaceForm">
+
+                        <div class="wrap-input100 ">
+                            <input id="name" class="input100" type="text" placeholder="Name" formControlName="name">
+                            <span class="focus-input100"></span>
+
+                        </div>
+
+                        <small class="error" *ngIf="form.name.invalid && form.name.touched ">*Required</small>
+
+                        <div class="wrap-input100 ">
+                            <input class="input100" type="text" placeholder="Location" formControlName="location">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <small class="error" *ngIf="form.location.touched && form.location.getError('required')">*Required </small>
+                        <div class="wrap-input100 ">
+                            <input class="input100" onfocus="(this.type='time')" type="text" placeholder="Hour Open" formControlName="hourOpen">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <div class="wrap-input100 ">
+                            <input class="input100" onfocus="(this.type='time')" type="text" placeholder="Hour Close" formControlName="hourClose">
+                            <span class="focus-input100"></span>
+
+                        </div>
+                        <div class="wrap-input100 ">
+                            <textarea class="input100" name="description" placeholder="Description...." formControlName="description">
+
+            </textarea>
+
+                            <span class="focus-input100"></span>
+                        </div>
+
+
+
+                        <button type="submit" [disabled]="editSpaceForm.invalid">Submit</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

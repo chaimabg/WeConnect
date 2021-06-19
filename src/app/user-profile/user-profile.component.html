@@ -1,0 +1,171 @@
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-section">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-text">
+          <h2>WeConnect</h2>
+          <div class="bt-option">
+            <a href="./home.html">Home</a>
+            <span>Profile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Breadcrumb Section End -->
+
+<!-- Room Details Section Begin -->
+<div class="all">
+<section class="room-details-section spad">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-6">
+        <div class="profil-2">
+        <div class="edit"></div>
+        <div class="room-details-item">
+
+          <div class="rd-text">
+
+
+              <div class="booking-form">
+              <div class="rd-title">
+              <h1>{{ user.username }}</h1>
+
+            </div>
+
+            <table>
+              <tbody>
+              <tr>
+                <td class="r-o">Email:</td>
+                <td>{{user.email}}</td>
+              </tr>
+              <tr>
+                <td class="r-o">Address:</td>
+                <td>{{ user.address }} </td>
+              </tr>
+              <tr>
+                <td class="r-o">Phone:</td>
+                <td>{{ user.phoneNumber }}</td>
+
+
+              </tr>
+
+              </tbody>
+            </table>
+</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+        <div class="col-lg-6">
+          <div class="col">
+
+          <div class="booking-form">
+
+
+            <h1 class="profil">Edit Profile</h1>
+            <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
+            <form (ngSubmit)="submit()" [formGroup]="editForm" class="editform" >
+              <div class="wrap-input100 ">
+                <input class="input100" type="text"   formControlName="username" >
+                <span class="focus-input100"></span>
+
+              </div>
+              <small class="error" *ngIf="form.username.invalid && form.username.touched ">*Required</small>
+              <div class="wrap-input100 ">
+                <input class="input100" type="email"  placeholder="Email" formControlName="email" >
+                <span class="focus-input100"></span>
+
+              </div>
+              <small class="error" *ngIf="form.email.touched && form.email.getError('required')">*Required </small>
+              <small class="error" *ngIf=" form.email.getError('email') "> Must be a valid email address</small>
+              <div class="wrap-input100 ">
+                <input class="input100" type="text"  placeholder="Phone number" formControlName="phone" >
+                <span class="focus-input100"></span>
+
+              </div>
+              <small class="error" *ngIf=" form.phone.getError('pattern')  ">Must be a valid phone number</small>
+              <small  class="error" *ngIf=" form.phone.getError('required') && form.phone.touched ">*Required</small>
+              <div class="wrap-input100 ">
+                <input class="input100" type="email"  placeholder="Address" formControlName="address" >
+                <span class="focus-input100"></span>
+
+              </div>
+              <small class="error" *ngIf=" form.address.invalid && form.address.touched ">*Required</small>
+              <div class="wrap-input100 ">
+                <input class="input100" type="password"  placeholder="Tap your password to confirm" formControlName="password" >
+                <span class="focus-input100"></span>
+
+              </div>
+              <small class="error" *ngIf=" form.password.getError('required')&& form.password.touched ">*Required</small>
+
+
+
+              <div class="buttonsub">
+              <button type="submit"> Edit Profile</button>
+              </div>
+              <br><br><br>
+            </form>
+          </div>
+        </div>
+        </div>
+
+    </div>
+  </div>
+</section>
+</div>
+
+        <div class="rd-reviews">
+          <div>
+          <h1 class="cowork">Your Co-Working Spaces</h1>
+          </div>
+          <br><br>
+          <section class="rooms-section spad">
+            <div class="container">
+              <div class="row">
+                <div *ngFor="let space of spaces | paginate: config" class="col-lg-4 col-md-6">
+                  <app-space-item [space]='space'></app-space-item>
+                </div>
+              </div>
+
+
+
+
+              <pagination-template #p="paginationApi" [id]="config.id" (pageChange)="config.currentPage = $event">
+
+
+                <div class="custom-pagination">
+                  <div class="pagination-previous" [class.disabled]="p.isFirstPage()">
+                    <span *ngIf="!p.isFirstPage()" (click)="p.previous()"> <<
+                  </span>
+                  </div>
+                  <div class="page-number" *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+                    <span (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">{{ page.label }}</span>
+                    <div *ngIf="p.getCurrent() === page.value">
+                      <span>{{ page.label }}</span>
+                    </div>
+                  </div>
+                  <div class="pagination-next" [class.disabled]="p.isLastPage()">
+                    <span *ngIf="!p.isLastPage()" (click)="p.next()"> >> </span>
+                  </div>
+                </div>
+
+              </pagination-template>
+        </div>
+
+
+
+
+
+
+
+
+<!-- Room Details Section End -->
